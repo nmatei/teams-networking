@@ -1,0 +1,17 @@
+[
+    {
+        "firstName": "Andrei",
+        "lastName": "Ille",
+        "gitHub": "illeandrei"
+    }, 
+    {
+        "firstName": "Nicolae",
+        "lastName": "Matei",
+        "gitHub": "nmatei"
+    }, 
+    {
+        "firstName": "Popescu",
+        "lastName": "Ion",
+        "gitHub": "pion"
+    }
+]
