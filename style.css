@@ -1,0 +1,15 @@
+#list {
+    border-collapse: collapse;
+    width: 100%;
+}
+#list th {
+    background-color: #00aeef;
+    color: white;
+}
+#list th, #list td {
+    border: 1px solid #29a7e1;
+    padding: 5px;
+}
+#list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
