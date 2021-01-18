@@ -89,13 +89,19 @@ function saveTeamMember() {
 }
 
 function deleteTermMember(id) {
-    fetch("http://localhost:3000/teams-json/delete", {
-        method: "DELETE",
+    fetch(API.DELETE.URL, {
+        method: API.DELETE.METHOD,
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ id })
-      });
+    })
+        .then(r => r.json())
+        .then(r => {
+            if (r.success) {
+                loadList();
+            }
+        });
 }
 
 function addEventListeners() {
