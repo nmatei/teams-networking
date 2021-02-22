@@ -38,7 +38,7 @@ function getPersonHtml (person) {
     return `<tr>
         <td>${person.members.split(/\s*,\s*/).join("<br>")}</td>
         <td>${person.projectName}</td>
-        <td><a target="_blank" href="https://github.com/${projectUrl}">Github</a></td>
+        <td><a target="_blank" href="${projectUrl}">Github</a></td>
         <td>
             <a href="#" class="delete-row" data-id="${person.id}">&#10006;</a>
             <a href="#" class="edit-row" data-id="${person.id}">&#9998;</a>
