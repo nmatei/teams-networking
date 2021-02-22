@@ -1,14 +1,38 @@
 [
     {
-        "id": "abcdef1610310163146",
-        "firstName": "Nicolae",
-        "lastName": "Matei",
-        "gitHub": "nmatei"
+        "id": "1",
+        "members": "Nicolae Matei, Andrei Ille",
+        "projectName": "Teams Networking",
+        "projectUrl": "https://github.com/nmatei/teams-networking"
     },
     {
-        "id": "toze8j1610313009673",
-        "firstName": "Andrei",
-        "lastName": "Ille",
-        "gitHub": "illeandrei"
+        "id": "2",
+        "members": "Coman Oana, Adina Bîlc, Bianca Vesa",
+        "projectName": "Medical Inventory store",
+        "projectUrl": "https://github.com/comanoana/medstore"
+    },
+    {
+        "id": "3",
+        "members": "Cristi Cosma, Reka Kovacs, Simona Glodean",
+        "projectName": "DOCS Generator",
+        "projectUrl": "https://github.com/CristiCozma/docsgenerator"
+    },
+    {
+        "id": "4",
+        "members": "Kadar Miahly, Tiberiu Deak",
+        "projectName": "Fire Alarm",
+        "projectUrl": "https://github.com/deaktiberiu/alarmaaa"
+    },
+    {
+        "id": "5",
+        "members": "Iacob Tudor, Andrei Tirla, Rareș Roman, Vlad Felecan",
+        "projectName": "Hunting Quiz",
+        "projectUrl": "https://github.com/romanrares/hunters"
+    },
+    {
+        "id": "6",
+        "members": "Stanca Știrb, Sergiu Corfu, Ștefania Popa",
+        "projectName": "Home Storage",
+        "projectUrl": "https://github.com/scorfu/myStorage"
     }
 ]
