@@ -19,7 +19,15 @@ const API = {
 
 // for demo purposes...
 if (true || location.host === "nmatei.github.io") {
-    API.READ.URL = "team.json";
+    API.READ.URL = "data/teams.json";
+    API.DELETE.URL = "data/delete.json";
+    API.CREATE.URL = "data/create.json";
+    API.UPDATE.URL = "data/update.json";
+
+    API.READ.METHOD = "GET";
+    API.DELETE.METHOD = "GET";
+    API.CREATE.METHOD = "GET";
+    API.UPDATE.METHOD = "GET";
 }
 
 let editId;
@@ -36,6 +44,7 @@ function getPersonsHtml (persons) {
 function getPersonHtml (person) {
     const projectUrl = person.projectUrl;
     return `<tr>
+        <td>${person.group}</td>    
         <td>${person.members.split(/\s*,\s*/).join("<br>")}</td>
         <td>${person.projectName}</td>
         <td><a target="_blank" href="${projectUrl}">Github</a></td>
@@ -79,12 +88,13 @@ function saveTeamMember() {
     };
     console.info('saving...', person, JSON.stringify(person));
 
+    const method = API.CREATE.METHOD;
     fetch(API.CREATE.URL, {
-        method: API.CREATE.METHOD,
+        method,
         headers: {
             "Content-Type": "application/json"
         },
-        body: API.CREATE.METHOD === "GET" ? null : JSON.stringify(person)
+        body: method === "GET" ? null : JSON.stringify(person)
     })
         .then(res => res.json())
         .then(r => {
@@ -102,18 +112,19 @@ function updateTeamMember() {
     
     const person = {
         id: editId,
-        firstName,
+        members,
         projectName,
         projectUrl
     };
     console.info('updating...', person, JSON.stringify(person));
 
+    const method = API.UPDATE.METHOD;
     fetch(API.UPDATE.URL, {
-        method: API.UPDATE.METHOD,
+        method,
         headers: {
             "Content-Type": "application/json"
         },
-        body: API.UPDATE.METHOD === "GET" ? null : JSON.stringify(person)
+        body: method === "GET" ? null : JSON.stringify(person)
     })
         .then(res => res.json())
         .then(r => {
@@ -124,12 +135,13 @@ function updateTeamMember() {
 }
 
 function deleteTeamMember(id) {
+    const method = API.UPDATE.METHOD;
     fetch(API.DELETE.URL, {
-        method: API.DELETE.METHOD,
+        method,
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ id })
+        body: method === 'GET' ? null : JSON.stringify({ id })
     })
         .then(r => r.json())
         .then(r => {
