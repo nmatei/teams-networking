@@ -3,42 +3,42 @@
         "id": "1",
         "group": "won1",
         "members": "Nicolae Matei, Andrei Ille",
-        "projectName": "Teams Networking",
-        "projectUrl": "https://github.com/nmatei/teams-networking"
+        "name": "Teams Networking",
+        "url": "https://github.com/nmatei/teams-networking"
     },
     {
         "id": "2",
         "group": "won1",
         "members": "Coman Oana, Adina Bîlc, Bianca Vesa",
-        "projectName": "Medical Inventory store",
-        "projectUrl": "https://github.com/comanoana/medstore"
+        "name": "Medical Inventory store",
+        "url": "https://github.com/comanoana/medstore"
     },
     {
         "id": "3",
         "group": "won1",
         "members": "Cristi Cosma, Reka Kovacs, Simona Glodean",
-        "projectName": "DOCS Generator",
-        "projectUrl": "https://github.com/CristiCozma/docsgenerator"
+        "name": "DOCS Generator",
+        "url": "https://github.com/CristiCozma/docsgenerator"
     },
     {
         "id": "4",
         "group": "won1",
         "members": "Kadar Mihaly, Tiberiu Deak",
-        "projectName": "Fire Alarm",
-        "projectUrl": "https://github.com/deaktiberiu/alarmaaa"
+        "name": "Fire Alarm",
+        "url": "https://github.com/deaktiberiu/alarmaaa"
     },
     {
         "id": "5",
         "group": "won1",
         "members": "Iacob Tudor, Andrei Tirla, Rareș Roman, Vlad Felecan",
-        "projectName": "Hunting Quiz",
-        "projectUrl": "https://github.com/romanrares/hunters"
+        "name": "Hunting Quiz",
+        "url": "https://github.com/romanrares/hunters"
     },
     {
         "id": "6",
         "group": "won1",
         "members": "Stanca Știrb, Sergiu Corfu, Ștefania Popa",
-        "projectName": "Home Storage",
-        "projectUrl": "https://github.com/scorfu/myStorage"
+        "name": "Home Storage",
+        "url": "https://github.com/scorfu/myStorage"
     }
 ]
