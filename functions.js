@@ -32,7 +32,7 @@ if (true || location.host === "nmatei.github.io") {
 
 let editId;
 
-function insertPersons(persons) {
+function showTeams(persons) {
     const tbody = document.querySelector('#list tbody');
     tbody.innerHTML = getPersonsHtml(persons);
 }
@@ -41,52 +41,52 @@ function getPersonsHtml (persons) {
     return persons.map(getPersonHtml).join("");
 }
 
-function getPersonHtml (person) {
-    const projectUrl = person.projectUrl;
+function getPersonHtml (team) {
+    const url = team.url;
     return `<tr>
-        <td>${person.group}</td>    
-        <td>${person.members.split(/\s*,\s*/).join("<br>")}</td>
-        <td>${person.projectName}</td>
-        <td><a target="_blank" href="${projectUrl}">Github</a></td>
+        <td>${team.group}</td>    
+        <td>${team.members.split(/\s*,\s*/).join("<br>")}</td>
+        <td>${team.name}</td>
+        <td><a target="_blank" href="${url}">Github</a></td>
         <td>
-            <a href="#" class="delete-row" data-id="${person.id}">&#10006;</a>
-            <a href="#" class="edit-row" data-id="${person.id}">&#9998;</a>
+            <a href="#" class="delete-row" data-id="${team.id}">&#10006;</a>
+            <a href="#" class="edit-row" data-id="${team.id}">&#9998;</a>
         </td>
     </tr>`;
 }
 
-let allPersons = [];
+let allTeams = [];
 
 function loadList() {
     fetch(API.READ.URL)
         .then(res => res.json())
         .then(data => {
-            allPersons = data;
-            insertPersons(data);
+            allTeams = data;
+            showTeams(data);
         });
 }
 
 loadList();
 
-function searchPersons(text) {
+function searchTeams(text) {
     text = text.toLowerCase();
-    return allPersons.filter(person => {
-        return person.members.toLowerCase().indexOf(text) > -1 ||
-            person.projectName.toLowerCase().indexOf(text) > -1;
+    return allPersons.filter(team => {
+        return team.members.toLowerCase().indexOf(text) > -1 ||
+            team.name.toLowerCase().indexOf(text) > -1;
     });
 }
 
 function saveTeamMember() {
     const members = document.querySelector("#list input[name=members]").value;
-    const projectName = document.querySelector("input[name=projectName]").value;
-    const projectUrl = document.querySelector("input[name=projectUrl]").value;
+    const name = document.querySelector("input[name=name]").value;
+    const url = document.querySelector("input[name=url]").value;
     
-    const person = {
+    const team = {
         members,
-        projectName,
-        projectUrl
+        name,
+        url
     };
-    console.info('saving...', person, JSON.stringify(person));
+    console.info('saving...', team, JSON.stringify(team));
 
     const method = API.CREATE.METHOD;
     fetch(API.CREATE.URL, {
@@ -94,7 +94,7 @@ function saveTeamMember() {
         headers: {
             "Content-Type": "application/json"
         },
-        body: method === "GET" ? null : JSON.stringify(person)
+        body: method === "GET" ? null : JSON.stringify(team)
     })
         .then(res => res.json())
         .then(r => {
@@ -107,16 +107,16 @@ function saveTeamMember() {
 
 function updateTeamMember() {
     const members = document.querySelector("#list input[name=members]").value;
-    const projectName = document.querySelector("input[name=projectName]").value;
-    const projectUrl = document.querySelector("input[name=projectUrl]").value;
+    const name = document.querySelector("input[name=name]").value;
+    const url = document.querySelector("input[name=url]").value;
     
-    const person = {
+    const team = {
         id: editId,
         members,
-        projectName,
-        projectUrl
+        name,
+        url
     };
-    console.info('updating...', person, JSON.stringify(person));
+    console.info('updating...', team, JSON.stringify(team));
 
     const method = API.UPDATE.METHOD;
     fetch(API.UPDATE.URL, {
@@ -124,7 +124,7 @@ function updateTeamMember() {
         headers: {
             "Content-Type": "application/json"
         },
-        body: method === "GET" ? null : JSON.stringify(person)
+        body: method === "GET" ? null : JSON.stringify(team)
     })
         .then(res => res.json())
         .then(r => {
@@ -152,25 +152,25 @@ function deleteTeamMember(id) {
 }
 
 function populateCurrentMember(id) {
-    var person = allPersons.find(person => person.id === id);
+    var team = allTeams.find(team => team.id === id);
 
     editId = id;
     
     const members = document.querySelector("#list input[name=members]");
-    const projectName = document.querySelector("input[name=projectName]");
-    const projectUrl = document.querySelector("input[name=projectUrl]");
+    const name = document.querySelector("input[name=name]");
+    const url = document.querySelector("input[name=url]");
 
-    members.value = person.members;
-    projectName.value = person.projectName;
-    projectUrl.value = person.projectUrl;
+    members.value = team.members;
+    name.value = team.name;
+    url.value = team.url;
 }
 
 function addEventListeners() {
     const search = document.getElementById('search');
     search.addEventListener("input", e => {
         const text = e.target.value;
-        const filtrate = searchPersons(text);
-        insertPersons(filtrate);
+        const filtrate = searchTeams(text);
+        showTeams(filtrate);
     });
     
     const saveBtn = document.querySelector("#list tfoot button");

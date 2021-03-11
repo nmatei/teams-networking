@@ -1,6 +1,6 @@
 # Teams Networking
 
-Teams job related networking (linkedin, github)
+Teams job related networking (members, project name, project url)
 
 ## Live Preview
 
