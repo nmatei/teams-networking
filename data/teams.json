@@ -40,5 +40,19 @@
         "members": "Stanca Știrb, Sergiu Corfu, Ștefania Popa",
         "name": "Home Storage",
         "url": "https://github.com/scorfu/myStorage"
+    }, 
+    {
+        "id": "7",
+        "group": "won2",
+        "members": "Alexandra Chicinas, Adelina Nica, Fineas Berende, Ciprian Chesa, Violeta Mercea",
+        "name": "Farm Delivery",
+        "url": "https://github.com/alexandraschicinas/Farm_Delivery"
+    },
+    {
+        "id": "8",
+        "group": "won2",
+        "members": "Adriana Mocanu, Bogdan Muste, Alexandra Stanescu",
+        "name": "Animal Register",
+        "url": "https://github.com/adriana-mocanu/animal-register"
     }
 ]
