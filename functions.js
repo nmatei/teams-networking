@@ -70,7 +70,7 @@ loadList();
 
 function searchTeams(text) {
     text = text.toLowerCase();
-    return allPersons.filter(team => {
+    return allTeams.filter(team => {
         return team.members.toLowerCase().indexOf(text) > -1 ||
             team.name.toLowerCase().indexOf(text) > -1;
     });
