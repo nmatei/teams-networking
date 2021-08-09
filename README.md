@@ -14,4 +14,4 @@ Teams job related networking (linkedin, github)
 ## Start with VSCode
 
 - CTRL + Shift + P
-- **/*.*
+- `**/*.*`
