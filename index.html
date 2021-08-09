@@ -12,6 +12,7 @@
   <h1>Teams Networking</h1>
   <input type="text" placeholder="Search">
 
+  <form onsubmit="submitTeam(); return false;">
   <table id="list" border="1">
     <thead>
       <tr>
@@ -26,9 +27,16 @@
       
     </tbody>
     <tfoot>
-
+      <tr>
+        <td><input type="text" required name="group" placeholder="Group"></td>
+        <td><input type="text" required name="members" placeholder="Members"></td>
+        <td><input type="text" required name="name" placeholder="Name"></td>
+        <td><input type="text" required name="url" placeholder="URL"></td>
+        <td><button type="submit">Save</button></td>
+      </tr>
     </tfoot>
   </table>
+  </form>
   <script src="functions.js"></script>
 </body>
 </html>
