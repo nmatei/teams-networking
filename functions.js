@@ -1,5 +1,6 @@
 
 let allTeams = [];
+let editId;
 
 function loadTeams() {
   fetch("http://localhost:3000/teams-json")
@@ -20,7 +21,7 @@ function getTeamsAsHTML(teams) {
         <td>${team.url}</td>
         <td>
           <a href="#" class="delete-btn" data-id="${team.id}">&#10006;</a>
-          <a href="#" class="edit-btn">&#9998;</a>
+          <a href="#" class="edit-btn" data-id="${team.id}">&#9998;</a>
         </td>
       </tr>`
   }).join('');
@@ -44,6 +45,14 @@ function getTeamValues() {
     name,
     url
   };
+}
+
+function setTeamValues(team) {
+  console.warn('edit', team);
+  document.querySelector('[name=promotion]').value = team.promotion;
+  document.querySelector('[name=members]').value = team.members;
+  document.querySelector('[name=name]').value = team.name;
+  document.querySelector('[name=url]').value = team.url;
 }
 
 function saveTeam(team) {
@@ -79,9 +88,38 @@ function deleteTeam(id) {
     });
 }
 
+function updateTeam(team) {
+  fetch("http://localhost:3000/teams-json/update", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(team)
+  })
+    .then(r => r.json())
+    .then(status => {
+      if (status.success) {
+        loadTeams();
+        document.querySelector('form').reset();
+        editId = 0;
+      }
+    });
+}
+
+function editTeam(id) {
+  editId = id;
+  const team = allTeams.find(team => team.id === id);
+  setTeamValues(team);
+}
+
 function submitTeam() {
   const team = getTeamValues();
-  saveTeam(team);
+  if (editId) {
+    team.id = editId;
+    updateTeam(team);
+  } else {
+    saveTeam(team);
+  }
 }
 
 loadTeams();
@@ -90,5 +128,8 @@ document.querySelector('#list tbody').addEventListener("click", e => {
   if (e.target.matches("a.delete-btn")) {
     const id = e.target.getAttribute("data-id");
     deleteTeam(id);
+  } else if (e.target.matches("a.edit-btn")) {
+    const id = e.target.getAttribute("data-id");
+    editTeam(id);
   }
 });
