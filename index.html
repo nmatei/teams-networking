@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   
   <h1>Teams Networking</h1>
   <input type="text" placeholder="Search">
 
-  <form onsubmit="submitTeam(); return false;">
+  <form onsubmit="submitTeam(); return false;" onreset="editId = 0;">
   <table id="list" border="1">
     <thead>
       <tr>
@@ -32,7 +33,10 @@
         <td><input type="text" required name="members" placeholder="Members"></td>
         <td><input type="text" required name="name" placeholder="Name"></td>
         <td><input type="text" required name="url" placeholder="URL"></td>
-        <td><button type="submit">Save</button></td>
+        <td>
+          <button type="submit"><i class="fas fa-save"></i></button>
+          <button type="reset"><i class="fas fa-undo"></i></button>
+        </td>
       </tr>
     </tfoot>
   </table>
