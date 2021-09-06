@@ -12,13 +12,19 @@ function loadTeams() {
     })
 }
 
-function getTeamsAsHTML(teams) {
+function highlight(text, search) {
+  return text;
+  // TODO use regexp with /gi
+  //return search ? text.replaceAll(search, `<span class="highlight">${search}</span>`) : text;
+}
+
+function getTeamsAsHTML(teams, search) {
   return teams.map(team => {
     return `<tr>
-        <td>${team.promotion}</td>
-        <td>${team.members}</td>
-        <td>${team.name}</td>
-        <td>${team.url}</td>
+        <td>${highlight(team.promotion, search)}</td>
+        <td>${highlight(team.members, search)}</td>
+        <td>${highlight(team.name, search)}</td>
+        <td>${highlight(team.url, search)}</td>
         <td>
           <a href="#" class="delete-btn" data-id="${team.id}">&#10006;</a>
           <a href="#" class="edit-btn" data-id="${team.id}">&#9998;</a>
@@ -28,7 +34,8 @@ function getTeamsAsHTML(teams) {
 };
 
 function displayTeams(teams) {
-  const html = getTeamsAsHTML(teams);
+  const search = document.getElementById("search").value.toLowerCase();
+  const html = getTeamsAsHTML(teams, search);
 
   document.querySelector('#list tbody').innerHTML = html;
 }
