@@ -16,3 +16,7 @@
 #list tfoot input[type="text"] {
     width: 100%;
 }
+
+.highlight {
+  background-color: yellowgreen;
+}

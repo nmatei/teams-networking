@@ -1,119 +1,119 @@
 [
   {
     "id": "1",
-    "group": "won1",
+    "promotion": "won1",
     "members": "Nicolae Matei, Andrei Ille",
     "name": "Teams Networking",
     "url": "https://github.com/nmatei/teams-networking"
   },
   {
     "id": "2",
-    "group": "won1",
+    "promotion": "won1",
     "members": "Coman Oana, Adina Bîlc, Bianca Vesa",
     "name": "Medical Inventory store",
     "url": "https://github.com/comanoana/medstore"
   },
   {
     "id": "3",
-    "group": "won1",
+    "promotion": "won1",
     "members": "Cristi Cosma, Reka Kovacs, Simona Glodean",
     "name": "DOCS Generator",
     "url": "https://github.com/CristiCozma/docsgenerator"
   },
   {
     "id": "4",
-    "group": "won1",
+    "promotion": "won1",
     "members": "Kadar Mihaly, Tiberiu Deak",
     "name": "Fire Alarm",
     "url": "https://github.com/deaktiberiu/alarmaaa"
   },
   {
     "id": "5",
-    "group": "won1",
+    "promotion": "won1",
     "members": "Iacob Tudor, Andrei Tirla, Rareș Roman, Vlad Felecan",
     "name": "Hunting Quiz",
     "url": "https://github.com/romanrares/hunters"
   },
   {
     "id": "6",
-    "group": "won1",
+    "promotion": "won1",
     "members": "Stanca Știrb, Sergiu Corfu, Ștefania Popa",
     "name": "Home Storage",
     "url": "https://github.com/scorfu/myStorage"
   },
   {
     "id": "7",
-    "group": "won2",
+    "promotion": "won2",
     "members": "Alexandra Chicinas, Adelina Nica, Fineas Berende, Ciprian Chesa, Violeta Mercea",
     "name": "Farm Delivery",
     "url": "https://github.com/alexandraschicinas/Farm_Delivery"
   },
   {
     "id": "8",
-    "group": "won2",
+    "promotion": "won2",
     "members": "Adriana Mocanu, Bogdan Muste, Alexandra Stanescu",
     "name": "Animal Register",
     "url": "https://github.com/adriana-mocanu/animal-register"
   },
   {
     "id": "9",
-    "group": "web3",
+    "promotion": "web3",
     "members": "Andreea, Daniela, Ciprian",
     "name": "Maze Game",
     "url": "https://github.com/andreeaotet/maze-game-project"
   },
   {
     "id": "10",
-    "group": "web3",
+    "promotion": "web3",
     "members": "Dana, Daniel, Valentiu",
     "name": "Buget Lunar",
     "url": "https://github.com/domne21/buget-lunar-app"
   },
   {
     "id": "11",
-    "group": "web3",
+    "promotion": "web3",
     "members": "Lucian, Razvan, Mircea",
     "name": "Fitness",
     "url": "https://github.com/1lucianmoldovan/node-fitness-app"
   },
   {
     "id": "12",
-    "group": "web3",
+    "promotion": "web3",
     "members": "Andreea, Cosmin",
     "name": "JS Quiz",
     "url": "https://github.com/Smokyn/simple-quiz-app"
   },
   {
     "id": "13",
-    "group": "web3",
+    "promotion": "web3",
     "members": "Diana, Larisa",
     "name": "Eurofest",
     "url": "https://github.com/diagn/eurofestproject"
   },
   {
     "id": "14",
-    "group": "web3",
+    "promotion": "web3",
     "members": "Attila, Alexandra, Ionel",
     "name": "My Library",
     "url": "https://github.com/nattila12/book-app"
   },
   {
     "id": "15",
-    "group": "won3",
+    "promotion": "won3",
     "members": "Corpodean Andrei, Chișiu Ionuț, Ichim Maximilian",
     "name": "Food Waste Planner",
     "url": "https://github.com/ACorpodean/Food-Waste-Planner"
   },
   {
     "id": "16",
-    "group": "won3",
+    "promotion": "won3",
     "members": "Suciu Tudor, Rădulescu Alexandru",
     "name": "Expert Explicatii",
     "url": "https://github.com/nmatei/teams-networking"
   },
   {
     "id": "17",
-    "group": "won3",
+    "promotion": "won3",
     "members": "Ratiu Alex, Durcau Paul",
     "name": "Checkers",
     "url": "https://github.com/Ratiu23/Checkers"

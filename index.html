@@ -1,55 +1,57 @@
 <html>
 
 <head>
-    <title>Teams Networking</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Teams Networking</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Teams Networking</h1>
+  <h1>Teams Networking</h1>
 
-    <div style="margin-bottom: 5px;">
-        <input type="text" id="search" placeholder="Search"><label for="search">&#128270;</label>
-    </div>
+  <div style="margin-bottom: 5px;">
+    <input type="text" id="search" placeholder="Search"><label for="search">&#128270;</label>
+  </div>
+  <form onsubmit="submitTeam(); return false;" onreset="editId = 0;">
     <table id="list">
-        <colgroup>
-            <col span="1" style="width: 100px">
-            <col span="1">
-            <col span="1">
-            <col span="1" style="width: 150px;">
-            <col span="1" style="width: 70px">
-        </colgroup>
-        <thead>
-            <tr>
-                <th>Group</th>
-                <th>Members</th>
-                <th>Project Name</th>
-                <th>Project URL</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    <input type="text" placeholder="Enter group" name="group">
-                </td>
-                <td>
-                    <input type="text" placeholder="Enter members" name="members">
-                </td>
-                <td>
-                    <input type="text" placeholder="Enter project name" name="name">
-                </td>
-                <td>
-                    <input type="text" placeholder="project URL" name="url">
-                </td>
-                <td>
-                    <button>Save</button>
-                </td>
-            </tr>
-        </tfoot>
+      <colgroup>
+        <col span="1" style="width: 100px">
+        <col span="1">
+        <col span="1">
+        <col span="1" style="width: 150px;">
+        <col span="1" style="width: 70px">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Group</th>
+          <th>Members</th>
+          <th>Project Name</th>
+          <th>Project URL</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <input type="text" required name="promotion" placeholder="Enter group">
+          </td>
+          <td>
+            <input type="text" required name="members" placeholder="Enter members">
+          </td>
+          <td>
+            <input type="text" required name="name" placeholder="Enter project name">
+          </td>
+          <td>
+            <input type="text" required name="url" placeholder="project URL">
+          </td>
+          <td>
+            <button type="submit">Save</button>
+          </td>
+        </tr>
+      </tfoot>
     </table>
-    <script src="functions.js"></script>
+  </form>
+  <script src="functions.js"></script>
 </body>
 
 </html>
