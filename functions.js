@@ -46,17 +46,37 @@ function highlight(text, search) {
   }) : text;
 }
 
+// from http://jsfiddle.net/sUK45/
+function stringToColour(str) {
+  var hash = 0;
+  for (var i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  var colour = '#';
+  for (var i = 0; i < 3; i++) {
+    var value = (hash >> (i * 8)) & 0xFF;
+    colour += ('00' + value.toString(16)).substr(-2);
+  }
+  return colour;
+}
+
 function getTeamsAsHtml(teams, search) {
   return teams.map(team => getTeamAsHtml(team, search)).join("");
 }
 
 function getTeamAsHtml(team, search) {
   const url = team.url;
+  const displayUrl = url ? url.replace('https://github.com/', '') : "Github";
   return `<tr>
-        <td>${highlight(team.promotion, search)}</td>
+        <td>
+          <span class="circle-bullet" style="background: ${stringToColour(team.promotion)};"></span>
+          ${highlight(team.promotion, search)}
+        </td>
         <td>${highlight(team.members.split(/\s*,\s*/).join(membersBreak), search)}</td>
         <td>${highlight(team.name, search)}</td>
-        <td><a target="_blank" href="${url}">Github</a></td>
+        <td>
+          <a target="_blank" href="${url}">${highlight(displayUrl, search)}</a>
+        </td>
         <td>
             <a href="#" class="delete-row" data-id="${team.id}">&#10006;</a>
             <a href="#" class="edit-row" data-id="${team.id}">&#9998;</a>
@@ -82,7 +102,8 @@ function searchTeams(text) {
   return allTeams.filter(team => {
     return team.members.toLowerCase().indexOf(text) > -1 ||
       team.name.toLowerCase().indexOf(text) > -1 ||
-      team.promotion.toLowerCase().indexOf(text) > -1;
+      team.promotion.toLowerCase().indexOf(text) > -1 ||
+      team.url.toLowerCase().indexOf(text) > -1;
   });
 }
 

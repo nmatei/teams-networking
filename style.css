@@ -18,5 +18,15 @@
 }
 
 .highlight {
-  background-color: yellowgreen;
+  background-color: yellow;
+}
+
+.circle-bullet {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #29a7e1;
+  margin-right: 10px;
+  border-radius: 50%;
 }
