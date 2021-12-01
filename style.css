@@ -9,6 +9,7 @@ body {
 }
 body > section {
     flex: 1;
+    padding: 15px;
 }
 footer {
     max-height: 24px;
