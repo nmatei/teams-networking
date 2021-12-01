@@ -6,51 +6,59 @@
 </head>
 
 <body>
-  <h1>Teams Networking</h1>
+  <header>
+    <h1>Teams Networking</h1>
+  </header>
 
-  <div style="margin-bottom: 5px;">
-    <input type="text" id="search" placeholder="Search"><label for="search">&#128270;</label>
-  </div>
-  <form onsubmit="submitTeam(); return false;" onreset="editId = 0;">
-    <table id="list">
-      <colgroup>
-        <col span="1" style="width: 125px">
-        <col span="1">
-        <col span="1">
-        <col span="1" style="width: 300px;">
-        <col span="1" style="width: 70px">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>Group</th>
-          <th>Members</th>
-          <th>Project Name</th>
-          <th>Project URL</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-      <tfoot>
-        <tr>
-          <td>
-            <input type="text" required name="promotion" placeholder="Enter group">
-          </td>
-          <td>
-            <input type="text" required name="members" placeholder="Enter members">
-          </td>
-          <td>
-            <input type="text" required name="name" placeholder="Enter project name">
-          </td>
-          <td>
-            <input type="text" required name="url" placeholder="project URL">
-          </td>
-          <td>
-            <button type="submit">Save</button>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-  </form>
+  <section>
+    <div style="margin-bottom: 5px;">
+      <input type="text" id="search" placeholder="Search"><label for="search">&#128270;</label>
+    </div>
+    <form onsubmit="submitTeam(); return false;" onreset="editId = 0;">
+      <table id="list">
+        <colgroup>
+          <col span="1" style="width: 125px">
+          <col span="1">
+          <col span="1">
+          <col span="1" style="width: 300px;">
+          <col span="1" style="width: 70px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Group</th>
+            <th>Members</th>
+            <th>Project Name</th>
+            <th>Project URL</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <input type="text" required name="promotion" placeholder="Enter group">
+            </td>
+            <td>
+              <input type="text" required name="members" placeholder="Enter members">
+            </td>
+            <td>
+              <input type="text" required name="name" placeholder="Enter project name">
+            </td>
+            <td>
+              <input type="text" required name="url" placeholder="project URL">
+            </td>
+            <td>
+              <button type="submit">Save</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
+  </section>
+
+  <footer>
+    <a href="https://github.com/nmatei/node-api" target="_blank">API Docs</a>
+  </footer>
   <script src="functions.js"></script>
 </body>
 
