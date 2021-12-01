@@ -7,13 +7,21 @@ body {
     display: flex;
     flex-direction: column;
 }
+header {
+  padding: 0 15px;
+}
 body > section {
     flex: 1;
     padding: 15px;
 }
 footer {
-    max-height: 24px;
+    padding: 5px;
     text-align: center;
+    background: #00aeef;
+    color: white;
+}
+footer a {
+  color: white;
 }
 
 #list {
