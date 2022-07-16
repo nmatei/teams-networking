@@ -1,46 +1,47 @@
 html {
-    height: 100%;
+  height: 100%;
 }
 body {
-    margin: 0;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 header {
   padding: 0 15px;
 }
 body > section {
-    flex: 1;
-    padding: 15px;
+  flex: 1;
+  padding: 15px;
 }
 footer {
-    padding: 5px;
-    text-align: center;
-    background: #00aeef;
-    color: white;
+  padding: 5px;
+  text-align: center;
+  background: #00aeef;
+  color: white;
 }
 footer a {
   color: white;
 }
 
 #list {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
 #list th {
-    background-color: #00aeef;
-    color: white;
+  background-color: #00aeef;
+  color: white;
 }
-#list th, #list td {
-    border: 1px solid #29a7e1;
-    padding: 5px;
+#list th,
+#list td {
+  border: 1px solid #29a7e1;
+  padding: 5px;
 }
 #list tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 #list tfoot input[type="text"] {
-    width: 100%;
+  width: 100%;
 }
 
 .highlight {
