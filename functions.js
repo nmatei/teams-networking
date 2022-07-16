@@ -17,11 +17,14 @@ const API = {
   }
 };
 
+let allTeams = [];
 let editId;
 const membersBreak = ", "; // "<br>"
 
 // for demo purposes...
-if (true || location.host === "nmatei.github.io") {
+const isDemo = location.host === "nmatei.github.io";
+const inlineChanges = isDemo;
+if (isDemo) {
   API.READ.URL = "data/teams.json";
   API.DELETE.URL = "data/delete.json";
   API.CREATE.URL = "data/create.json";
@@ -35,15 +38,17 @@ if (true || location.host === "nmatei.github.io") {
 
 function showTeams(persons) {
   const search = document.getElementById("search").value;
-  const tbody = document.querySelector('#list tbody');
+  const tbody = document.querySelector("#list tbody");
   const searchValue = search ? new RegExp(search, "gi") : 0;
   tbody.innerHTML = getTeamsAsHtml(persons, searchValue);
 }
 
 function highlight(text, search) {
-  return search ? text.replaceAll(search, m => {
-    return `<span class="highlight">${m}</span>`;
-  }) : text;
+  return search
+    ? text.replaceAll(search, m => {
+        return `<span class="highlight">${m}</span>`;
+      })
+    : text;
 }
 
 // from http://jsfiddle.net/sUK45/
@@ -52,10 +57,10 @@ function stringToColour(str) {
   for (var i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
-  var colour = '#';
+  var colour = "#";
   for (var i = 0; i < 3; i++) {
-    var value = (hash >> (i * 8)) & 0xFF;
-    colour += ('00' + value.toString(16)).substr(-2);
+    var value = (hash >> (i * 8)) & 0xff;
+    colour += ("00" + value.toString(16)).substr(-2);
   }
   return colour;
 }
@@ -66,7 +71,7 @@ function getTeamsAsHtml(teams, search) {
 
 function getTeamAsHtml(team, search) {
   const url = team.url;
-  const displayUrl = url ? url.replace('https://github.com/', '') : "Github";
+  const displayUrl = url ? url.replace("https://github.com/", "") : "Github";
   return `<tr>
         <td>
           <span class="circle-bullet" style="background: ${stringToColour(team.promotion)};"></span>
@@ -84,8 +89,6 @@ function getTeamAsHtml(team, search) {
     </tr>`;
 }
 
-let allTeams = [];
-
 function loadList() {
   fetch(API.READ.URL)
     .then(res => res.json())
@@ -100,10 +103,12 @@ loadList();
 function searchTeams(text) {
   text = text.toLowerCase();
   return allTeams.filter(team => {
-    return team.members.toLowerCase().indexOf(text) > -1 ||
+    return (
+      team.members.toLowerCase().indexOf(text) > -1 ||
       team.name.toLowerCase().indexOf(text) > -1 ||
       team.promotion.toLowerCase().indexOf(text) > -1 ||
-      team.url.toLowerCase().indexOf(text) > -1;
+      team.url.toLowerCase().indexOf(text) > -1
+    );
   });
 }
 
@@ -119,7 +124,7 @@ function saveTeamMember() {
     name,
     url
   };
-  console.info('saving...', team, JSON.stringify(team));
+  console.info("saving...", team, JSON.stringify(team));
 
   const method = API.CREATE.METHOD;
   fetch(API.CREATE.URL, {
@@ -133,7 +138,13 @@ function saveTeamMember() {
     .then(r => {
       console.warn(r);
       if (r.success) {
-        loadList();
+        if (inlineChanges) {
+          allTeams = [...allTeams, { ...team, id: r.id }];
+          showTeams(allTeams);
+        } else {
+          loadList();
+        }
+        document.querySelector("#editForm").reset();
       }
     });
 }
@@ -151,7 +162,7 @@ function updateTeamMember() {
     name,
     url
   };
-  console.info('updating...', team, JSON.stringify(team));
+  console.info("updating...", team, JSON.stringify(team));
 
   const method = API.UPDATE.METHOD;
   fetch(API.UPDATE.URL, {
@@ -164,7 +175,13 @@ function updateTeamMember() {
     .then(res => res.json())
     .then(r => {
       if (r.success) {
-        loadList();
+        if (inlineChanges) {
+          allTeams = allTeams.map(t => (t.id === editId ? team : t));
+          showTeams(allTeams);
+        } else {
+          loadList();
+        }
+        document.querySelector("#editForm").reset();
       }
     });
 }
@@ -176,12 +193,17 @@ function deleteTeamMember(id) {
     headers: {
       "Content-Type": "application/json"
     },
-    body: method === 'GET' ? null : JSON.stringify({ id })
+    body: method === "GET" ? null : JSON.stringify({ id })
   })
     .then(r => r.json())
     .then(r => {
       if (r.success) {
-        loadList();
+        if (inlineChanges) {
+          allTeams = allTeams.filter(team => team.id !== id);
+          showTeams(allTeams);
+        } else {
+          loadList();
+        }
       }
     });
 }
@@ -202,7 +224,8 @@ function populateCurrentMember(id) {
   url.value = team.url;
 }
 
-function submitTeam() {
+function submitTeam(e) {
+  e.preventDefault();
   if (editId) {
     updateTeamMember();
   } else {
@@ -211,15 +234,22 @@ function submitTeam() {
 }
 
 function addEventListeners() {
-  const search = document.getElementById('search');
+  const search = document.getElementById("search");
   search.addEventListener("input", e => {
     const text = e.target.value;
     const filtrate = searchTeams(text);
     showTeams(filtrate);
   });
 
+  const form = document.querySelector("#editForm");
+  form.addEventListener("submit", submitTeam);
+  form.addEventListener("reset", () => {
+    console.debug("reset %o", editId);
+    editId = undefined;
+  });
+
   const table = document.querySelector("#list tbody");
-  table.addEventListener("click", (e) => {
+  table.addEventListener("click", e => {
     const target = e.target;
     if (target.matches("a.delete-row")) {
       const id = target.getAttribute("data-id");
