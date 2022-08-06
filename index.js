@@ -12,9 +12,8 @@ function getTeamHTML(team) {
 }
 
 function displayTeams(teams) {
-  var teamsHTML = teams.map(function (team) {
-    return getTeamHTML(team);
-  });
+  var teamsHTML = teams.map(getTeamHTML);
+
   // afisare
   document.querySelector("table tbody").innerHTML = teamsHTML.join("");
 }
