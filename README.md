@@ -8,7 +8,7 @@ Teams job related networking (members, project name, project url)
 
 ## Steps to create this project
 
-- [x] create new repo in github (add Readme and gitingore (Node template))
+- [x] create new repo in github (add README.md and .gitignore (Node template))
 - [x] clone it on your pc
 - [x] create index.html file with standards
 - [x] create table that represents final desing and structure (2 persons as example)
