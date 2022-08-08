@@ -10,28 +10,54 @@
   <body>
     <h1>Teams Networking APP</h1>
 
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Group</th>
-          <th>Members</th>
-          <th>Project Name</th>
-          <th>Project URL</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>won8</td>
-          <td>noi</td>
-          <td>CV</td>
-          <td>
-            <a href="https://github.com/nmatei">nmatei</a>
-          </td>
-          <td>x e</td>
-        </tr>
-      </tbody>
-    </table>
+    <form action="" method="post" id="editForm">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Group</th>
+            <th>Members</th>
+            <th>Project Name</th>
+            <th>Project URL</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <input
+                type="text"
+                placeholder="Enter Group"
+                name="promotion"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                placeholder="Enter Members"
+                name="members"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                name="name"
+                required
+              />
+            </td>
+            <td>
+              <input type="text" placeholder="Enter URL" name="url" required />
+            </td>
+            <td>
+              <button type="submit">💾</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
 
     <script src="index.js"></script>
   </body>
