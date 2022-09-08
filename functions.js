@@ -22,7 +22,7 @@ let editId;
 const membersBreak = ", "; // "<br>"
 
 // for demo purposes...
-const isDemo = location.host === "nmatei.github.io";
+const isDemo = true || location.host === "nmatei.github.io";
 const inlineChanges = isDemo;
 if (isDemo) {
   API.READ.URL = "data/teams.json";
@@ -71,7 +71,7 @@ function getTeamsAsHtml(teams, search) {
 
 function getTeamAsHtml(team, search) {
   const url = team.url;
-  const displayUrl = url ? url.replace("https://github.com/", "") : "Github";
+  const displayUrl = url ? (url.includes("//github.com/") ? url.replace("https://github.com/", "") : "view") : "";
   return `<tr>
         <td>
           <span class="circle-bullet" style="background: ${stringToColour(team.promotion)};"></span>
