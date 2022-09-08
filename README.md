@@ -11,7 +11,6 @@ You can also find new project ideas.
 
 ## Steps to create this project
 
-<<<<<<< HEAD
 - [x] create **New repository** in [github/new](https://github.com/new)
   - [x] check Add a **README** file
   - [x] Add **.gitignore** (Node template)
@@ -21,13 +20,4 @@ You can also find new project ideas.
   - [x] Table headers -> [firstName, lastName, links {github, linkedin} ]
   - [x] remove 2 example persons and load them from js
   - [x] hint - TABLE -> THEAD & TBODY & TFOOT tags
-=======
-- [x] create new repo in github (add README.md and .gitignore (Node template))
-- [x] clone it on your pc
-- [x] create index.html file with standards
-- [x] create table that represents final desing and structure (2 persons as example)
-- [x] Table headers -> [firstName, lastName, links {github, linkedin} ]
-- [x] remove 2 example persons and load them from js
-- [x] hint - TABLE -> THEAD & TBODY & TFOOT tags
->>>>>>> a1b398e19dd920dc09652de8831a7e7b118a7084
 - [ ] load team.json and render them in page
