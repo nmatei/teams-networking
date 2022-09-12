@@ -21,3 +21,12 @@ You can also find new project ideas.
   - [x] remove 2 example persons and load them from js
   - [x] hint - TABLE -> THEAD & TBODY & TFOOT tags
 - [ ] load team.json and render them in page
+
+## Connect with API
+
+Current app can connect with external [node-API](https://github.com/nmatei/node-api) to store it's data.
+
+**Steps**
+
+- [x] Clone & Start node-api
+- [x] From current UI make request to node-api (using json or mysql url)
