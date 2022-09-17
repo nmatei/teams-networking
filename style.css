@@ -6,9 +6,41 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #e9f6f8;
 }
 header {
-  padding: 0 15px;
+  padding: 0 0px;
+  background-image: url(images/th.png);
+}
+h1 {
+  margin: 5px 0;
+  color: #ffffff;
+}
+#header-wraper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(45deg, #0798abfa, transparent);
+}
+#header-info {
+  flex: 1;
+  padding: 10px;
+}
+#job-title {
+  color: #ffffff;
+  margin: 5px 0;
+  font-weight: 100;
+  font-size: 1.2em;
+}
+#my-picture {
+  padding: 5px;
+  width: 108px;
+  height: 108px;
+}
+#my-picture img {
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background-color: #ffffff90;
 }
 body > section {
   flex: 1;
