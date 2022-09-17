@@ -22,7 +22,7 @@ let editId;
 const membersBreak = ", "; // "<br>"
 
 // for demo purposes...
-const isDemo = location.host === "nmatei.github.io";
+const isDemo = true || location.host === "nmatei.github.io";
 const inlineChanges = isDemo;
 if (isDemo) {
   API.READ.URL = "data/teams.json";
@@ -34,6 +34,17 @@ if (isDemo) {
   API.DELETE.METHOD = "GET";
   API.CREATE.METHOD = "GET";
   API.UPDATE.METHOD = "GET";
+}
+
+function $(selector, parent) {
+  return (parent || document).querySelector(selector);
+}
+function sleep(ms) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
 }
 
 function showTeams(persons) {
@@ -73,24 +84,27 @@ function getTeamAsHtml(team, search) {
   const url = team.url;
   const displayUrl = url ? (url.includes("//github.com/") ? url.replace("https://github.com/", "") : "view") : "";
   return `<tr>
-        <td>
-          <span class="circle-bullet" style="background: ${stringToColour(team.promotion)};"></span>
-          ${highlight(team.promotion, search)}
-        </td>
-        <td>${highlight(team.members.split(/\s*,\s*/).join(membersBreak), search)}</td>
-        <td>${highlight(team.name, search)}</td>
-        <td>
-          <a target="_blank" href="${url}">${highlight(displayUrl, search)}</a>
-        </td>
-        <td>
-            <a href="#" class="delete-row" data-id="${team.id}">&#10006;</a>
-            <a href="#" class="edit-row" data-id="${team.id}">&#9998;</a>
-        </td>
-    </tr>`;
+    <td style="text-align: center">
+      <input type="checkbox" name="selected" value="${team.id}">
+    </td>
+    <td>
+      <span class="circle-bullet" style="background: ${stringToColour(team.promotion)};"></span>
+      ${highlight(team.promotion, search)}
+    </td>
+    <td>${highlight(team.members.split(/\s*,\s*/).join(membersBreak), search)}</td>
+    <td>${highlight(team.name, search)}</td>
+    <td>
+      <a target="_blank" href="${url}">${highlight(displayUrl, search)}</a>
+    </td>
+    <td>
+      <a href="#" class="delete-row" data-id="${team.id}">&#10006;</a>
+      <a href="#" class="edit-row" data-id="${team.id}">&#9998;</a>
+    </td>
+  </tr>`;
 }
 
 function loadList() {
-  fetch(API.READ.URL)
+  return fetch(API.READ.URL)
     .then(res => res.json())
     .then(data => {
       allTeams = data;
@@ -98,7 +112,12 @@ function loadList() {
     });
 }
 
-loadList();
+$("#editForm").classList.add("loading-mask");
+sleep(isDemo ? 1000 : 0).then(() => {
+  loadList().then(() => {
+    $("#editForm").classList.remove("loading-mask");
+  });
+});
 
 function searchTeams(text) {
   text = text.toLowerCase();
@@ -188,7 +207,7 @@ function updateTeamMember() {
 
 function deleteTeamMember(id) {
   const method = API.UPDATE.METHOD;
-  fetch(API.DELETE.URL, {
+  return fetch(API.DELETE.URL, {
     method,
     headers: {
       "Content-Type": "application/json"
@@ -233,7 +252,21 @@ function submitTeam(e) {
   }
 }
 
+async function removeSelected() {
+  $("#editForm").classList.add("loading-mask");
+  const selected = document.querySelectorAll("input[name=selected]:checked");
+  // Array.from(selected)
+  const ids = [...selected].map(input => input.value);
+  const promises = ids.map(id => deleteTeamMember(id));
+  promises.push(sleep(2000));
+  const statuses = await Promise.allSettled(promises); //.then(() => {})
+  await loadList();
+  $("#editForm").classList.remove("loading-mask");
+}
+
 function addEventListeners() {
+  $("#removeSelected").addEventListener("click", removeSelected);
+
   const search = document.getElementById("search");
   search.addEventListener("input", e => {
     const text = e.target.value;
