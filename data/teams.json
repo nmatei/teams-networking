@@ -1,62 +1,62 @@
 [
   {
-    "id": "1",
+    "id": "01",
     "promotion": "FastTrackIT",
     "members": "Nicolae Matei, Andrei Ille",
     "name": "Teams Networking (CRUD*) <p class=\"description\">CRUD stands for: <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete</p>",
     "url": "https://github.com/nmatei/teams-networking"
   },
   {
-    "id": "2",
+    "id": "02",
     "promotion": "2021-won1",
     "members": "Coman Oana, Adina Bîlc, Bianca Vesa",
     "name": "Medical Inventory store",
     "url": "https://github.com/comanoana/medstore"
   },
   {
-    "id": "3",
+    "id": "03",
     "promotion": "2021-won1",
     "members": "Cristi Cosma, Reka Kovacs, Simona Glodean",
     "name": "DOCS Generator",
     "url": "https://github.com/CristiCozma/docsgenerator"
   },
   {
-    "id": "4",
+    "id": "04",
     "promotion": "2021-won1",
     "members": "Kadar Mihaly, Tiberiu Deak",
     "name": "Fire Alarm",
     "url": "https://github.com/deaktiberiu/alarmaaa"
   },
   {
-    "id": "5",
+    "id": "05",
     "promotion": "2021-won1",
     "members": "Iacob Tudor, Andrei Tirla, Rareș Roman, Vlad Felecan",
     "name": "Hunting Quiz",
     "url": "https://github.com/romanrares/hunters"
   },
   {
-    "id": "6",
+    "id": "06",
     "promotion": "2021-won1",
     "members": "Stanca Știrb, Sergiu Corfu, Ștefania Popa",
     "name": "Home Storage",
     "url": "https://github.com/scorfu/myStorage"
   },
   {
-    "id": "7",
+    "id": "07",
     "promotion": "2021-Won2",
     "members": "Alexandra Chicinas, Adelina Nica, Fineas Berende, Ciprian Chesa, Violeta Mercea",
     "name": "Farm Delivery",
     "url": "https://github.com/alexandraschicinas/Farm_Delivery"
   },
   {
-    "id": "8",
+    "id": "08",
     "promotion": "2021-Won2",
     "members": "Adriana Mocanu, Bogdan Muste, Alexandra Stanescu",
     "name": "Animal Register",
     "url": "https://github.com/adriana-mocanu/animal-register"
   },
   {
-    "id": "9",
+    "id": "09",
     "promotion": "2019-web3",
     "members": "Andreea, Daniela, Ciprian",
     "name": "Maze Game",
@@ -117,6 +117,48 @@
     "members": "Ratiu Alex, Durcau Paul",
     "name": "Checkers",
     "url": "https://github.com/Ratiu23/Checkers"
+  },
+  {
+    "id": "18",
+    "promotion": "2022-won8",
+    "members": "Beniamin Bărariu, Cătălin Dochița, Anca Pidmaliski",
+    "name": "Auto Recycling",
+    "url": "https://github.com/barariubeniamin/auto-recycling"
+  },
+  {
+    "id": "19",
+    "promotion": "2022-won8",
+    "members": "Ghitun Iulian Bogdan, Ichim Emanuel, Dana Vlas",
+    "name": "Interactive Restaurant Menu",
+    "url": "https://github.com/qBogdan/interactive-menu"
+  },
+  {
+    "id": "20",
+    "promotion": "2022-won8",
+    "members": "Mihai Iusztin",
+    "name": "Investment Portofolio",
+    "url": "https://github.com/Mihai-Iusztin/investment-portofolio"
+  },
+  {
+    "id": "21",
+    "promotion": "2022-won8",
+    "members": "Ivan Constantin Raul, Bianca Giurgiu, Mihai Semenescu, Claudiu Cîmpean",
+    "name": "Daily To Do List",
+    "url": "https://github.com/constantinraulivan/to-do-list"
+  },
+  {
+    "id": "22",
+    "promotion": "2022-won8",
+    "members": "Aurelian & Mihaela Constantin",
+    "name": "Meteo",
+    "url": "https://github.com/aurelian2020/meteo"
+  },
+  {
+    "id": "23",
+    "promotion": "2022-won8",
+    "members": "Mihaela Codrescu, Manuel Farcaș",
+    "name": "Agenda",
+    "url": ""
   },
   {
     "id": "001",
