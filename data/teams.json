@@ -135,26 +135,33 @@
   {
     "id": "20",
     "promotion": "2022-won8",
+    "members": "Andrada Povian, Dorin Povian, Andreea Toader",
+    "name": "🍕 Retete si produse",
+    "url": ""
+  },
+  {
+    "id": "21",
+    "promotion": "2022-won8",
     "members": "Mihai Iusztin",
     "name": "Investment Portofolio",
     "url": "https://github.com/Mihai-Iusztin/investment-portofolio"
   },
   {
-    "id": "21",
+    "id": "22",
     "promotion": "2022-won8",
     "members": "Ivan Constantin Raul, Bianca Giurgiu, Mihai Semenescu, Claudiu Cîmpean",
     "name": "Daily To Do List",
     "url": "https://github.com/constantinraulivan/to-do-list"
   },
   {
-    "id": "22",
+    "id": "23",
     "promotion": "2022-won8",
     "members": "Aurelian & Mihaela Constantin",
     "name": "Meteo",
     "url": "https://github.com/aurelian2020/meteo"
   },
   {
-    "id": "23",
+    "id": "24",
     "promotion": "2022-won8",
     "members": "Mihaela Codrescu, Manuel Farcaș",
     "name": "Agenda",
