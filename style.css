@@ -75,6 +75,18 @@ footer a {
 #list tfoot input[type="text"] {
   width: 100%;
 }
+
+a {
+  color: #0096d6;
+  text-decoration: none;
+}
+a:visited {
+  color: #02638d;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 .description {
   margin: 0 0 0 25px;
   font-size: 0.9em;
