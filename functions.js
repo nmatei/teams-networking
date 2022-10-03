@@ -47,13 +47,23 @@ function sleep(ms) {
   });
 }
 
-function showTeams(persons) {
+function showTeams(teams) {
   const search = document.getElementById("search").value;
   const tbody = document.querySelector("#list tbody");
-  const searchValue = search ? new RegExp(search, "gi") : 0;
-  tbody.innerHTML = getTeamsAsHtml(persons, searchValue);
+  // TODO not working if search parts of HTML
+  //    < / > chars inside our html, span
+  const searchValue = search ? new RegExp(escapeRegExp(search), "gi") : 0;
+  tbody.innerHTML = getTeamsAsHtml(teams, searchValue);
 }
 
+// from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+}
+
+// https://stackoverflow.com/questions/119441/highlight-a-word-with-jquery/32758672#32758672
+//    https://markjs.io/
+// TODO we can also use <mark> tag
 function highlight(text, search) {
   return search
     ? text.replaceAll(search, m => {
@@ -92,7 +102,10 @@ function getTeamAsHtml(team, search) {
       ${highlight(team.promotion, search)}
     </td>
     <td>${highlight(team.members.split(/\s*,\s*/).join(membersBreak), search)}</td>
-    <td>${highlight(team.name, search)}</td>
+    <td>
+      ${highlight(team.name, search)}
+      ${team.description ? `<p class="description">${team.description}</p>` : ""}
+    </td>
     <td>
       <a target="_blank" href="${url}">${highlight(displayUrl, search)}</a>
     </td>

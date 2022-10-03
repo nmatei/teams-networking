@@ -3,7 +3,8 @@
     "id": "01",
     "promotion": "FastTrackIT",
     "members": "Nicolae Matei, Andrei Ille",
-    "name": "Teams Networking (CRUD*) <p class=\"description\">CRUD stands for: <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete</p>",
+    "name": "Teams Networking (CRUD*)",
+    "description": "CRUD stands for: <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete",
     "url": "https://github.com/nmatei/teams-networking"
   },
   {
@@ -199,7 +200,8 @@
     "id": "005",
     "promotion": "soon",
     "members": "Nicolae Matei",
-    "name": "✋ Catalog & Prezența simplificată - sală / online / lipsă <p class=\"description\">automat pentru cei prezenti in sală (pe baza numele pc-ului)</p>",
+    "name": "✋ Catalog & Prezența simplificată - sală / online / lipsă",
+    "description": "automat pentru cei prezenti in sală (pe baza numele pc-ului)",
     "url": ""
   },
   {
