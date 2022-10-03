@@ -30,7 +30,6 @@ if (isDemo) {
   API.CREATE.URL = "data/create.json";
   API.UPDATE.URL = "data/update.json";
 
-  API.READ.METHOD = "GET";
   API.DELETE.METHOD = "GET";
   API.CREATE.METHOD = "GET";
   API.UPDATE.METHOD = "GET";
