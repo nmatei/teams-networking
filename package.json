@@ -4,7 +4,11 @@
   "description": "Teams job related networking (linkedin, github)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "npm run clean && rimraf node_modules",
+    "clean": "rimraf dist",
+    "build": "webpack --mode production",
+    "start": "webpack serve --open"
   },
   "repository": {
     "type": "git",
@@ -16,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/nmatei/teams-networking/issues"
   },
-  "homepage": "https://github.com/nmatei/teams-networking#readme"
+  "homepage": "https://github.com/nmatei/teams-networking#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

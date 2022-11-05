@@ -1,22 +1,24 @@
+// import { debounce } from "lodash";
+// import debounce from "lodash/debounce";
+import { $, debounce } from "./utilities";
+
+debounce;
+
 let allTeams = [];
 let editId;
 
-function $(selector) {
-  return document.querySelector(selector);
-}
-
-function getTeamHTML(team) {
+function getTeamHTML({ id, url, promotion, name, members }) {
   return `
   <tr>
-    <td>${team.promotion}</td>
-    <td>${team.members}</td>
-    <td>${team.name}</td>
+    <td>${promotion}</td>
+    <td>${members}</td>
+    <td>${name}</td>
     <td>
-      <a href="${team.url}" target="_blank">open</a>
+      <a href="${url}" target="_blank">open</a>
     </td>
     <td>
-      <a href="#" data-id="${team.id}" class="delete-btn">✖</a>
-      <a href="#" data-id="${team.id}" class="edit-btn">&#9998;</a>
+      <a href="#" data-id="${id}" class="delete-btn">✖</a>
+      <a href="#" data-id="${id}" class="edit-btn">&#9998;</a>
     </td>
   </tr>`;
 }
@@ -82,11 +84,11 @@ function getFormValues() {
   return team;
 }
 
-function setFormValues(team) {
-  $("input[name=promotion]").value = team.promotion;
-  $("input[name=members]").value = team.members;
-  $("input[name=name]").value = team.name;
-  $("input[name=url]").value = team.url;
+function setFormValues({ promotion, members, name, url }) {
+  $("input[name=promotion]").value = promotion;
+  $("input[name=members]").value = members;
+  $("input[name=name]").value = name;
+  $("input[name=url]").value = url;
 }
 
 function submitForm(e) {
@@ -103,8 +105,8 @@ function submitForm(e) {
       }
     });
   } else {
-    createTeamRequest(team).then(status => {
-      if (status.success) {
+    createTeamRequest(team).then(({ success }) => {
+      if (success) {
         $("#editForm").reset();
         loadTeams();
       }
@@ -119,13 +121,20 @@ function startEditTeam(id) {
 }
 
 function initEvents() {
-  $("#search").addEventListener("input", e => {
-    const search = e.target.value.toLowerCase();
-    const teams = allTeams.filter(team => {
-      return team.promotion.toLowerCase().includes(search);
-    });
-    displayTeams(teams);
-  });
+  $("#search").addEventListener(
+    "input",
+    debounce(e => {
+      const search = e.target.value.toLowerCase();
+      const teams = allTeams.filter(team => {
+        return (
+          team.promotion.toLowerCase().includes(search) ||
+          team.members.toLowerCase().includes(search) ||
+          team.name.toLowerCase().includes(search)
+        );
+      });
+      displayTeams(teams);
+    }, 400)
+  );
 
   const form = $("#editForm");
   form.addEventListener("submit", submitForm);
@@ -149,4 +158,4 @@ function initEvents() {
 }
 
 loadTeams();
-initEvents();
+initEvents(10);
