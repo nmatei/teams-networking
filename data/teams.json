@@ -210,5 +210,28 @@
     "members": "Nicolae Matei",
     "name": "📅 Orar pentru scoala/facultate",
     "url": ""
+  },
+  {
+    "id": "006",
+    "promotion": "soon",
+    "members": "Nicolae Matei",
+    "name": "📅 Orar pentru scoala/facultate",
+    "url": ""
+  },
+  {
+    "id": "007",
+    "promotion": "soon",
+    "members": "Nicolae Matei",
+    "name": "🛒 Best prices in stores",
+    "description": "show me best in this store, create shoping list and update prices in each store",
+    "url": ""
+  },
+  {
+    "id": "008",
+    "promotion": "soon",
+    "members": "Nicolae Matei",
+    "name": "Copii vs Parinti",
+    "description": "Joc pentru parinti si copii (concurs de intrebari din cultura generala)",
+    "url": ""
   }
 ]
