@@ -11,21 +11,21 @@
     "id": "02",
     "promotion": "2021-won1",
     "members": "Coman Oana, Adina Bîlc, Bianca Vesa",
-    "name": "Medical Inventory store",
+    "name": "🚑 Medical Inventory store",
     "url": "https://github.com/comanoana/medstore"
   },
   {
     "id": "03",
     "promotion": "2021-won1",
     "members": "Cristi Cosma, Reka Kovacs, Simona Glodean",
-    "name": "DOCS Generator",
+    "name": "📃 DOCS Generator",
     "url": "https://github.com/CristiCozma/docsgenerator"
   },
   {
     "id": "04",
     "promotion": "2021-won1",
     "members": "Kadar Mihaly, Tiberiu Deak",
-    "name": "Fire Alarm",
+    "name": "🚨 Fire Alarm",
     "url": "https://github.com/deaktiberiu/alarmaaa"
   },
   {
@@ -95,7 +95,7 @@
     "id": "14",
     "promotion": "2019-web3",
     "members": "Attila, Alexandra, Ionel",
-    "name": "My Library",
+    "name": "📚 My Library",
     "url": "https://github.com/nattila12/book-app"
   },
   {
@@ -116,7 +116,7 @@
     "id": "17",
     "promotion": "2021-won3",
     "members": "Ratiu Alex, Durcau Paul",
-    "name": "Checkers",
+    "name": "♟ Checkers",
     "url": "https://github.com/Ratiu23/Checkers"
   },
   {
@@ -202,13 +202,6 @@
     "members": "Nicolae Matei",
     "name": "✋ Catalog & Prezența simplificată - sală / online / lipsă",
     "description": "automat pentru cei prezenti in sală (pe baza numele pc-ului)",
-    "url": ""
-  },
-  {
-    "id": "006",
-    "promotion": "soon",
-    "members": "Nicolae Matei",
-    "name": "📅 Orar pentru scoala/facultate",
     "url": ""
   },
   {
