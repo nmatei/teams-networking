@@ -12,6 +12,7 @@ function displayTeams(teams) {
         <td>${team.members}</td>
         <td>${team.name}</td>
         <td>${team.url}</td>
+        <td></td>
       </tr>`
   );
 
