@@ -1,17 +1,17 @@
 fetch("http://localhost:3000/teams-json", {
   method: "GET",
   headers: {
-    "Content-Type": "application/json",
-  },
+    "Content-Type": "application/json"
+  }
 })
-  .then((r) => r.json())
-  .then((teams) => {
+  .then(r => r.json())
+  .then(teams => {
     displayTeams(teams);
   });
 
 function displayTeams(teams) {
   const teamsHTML = teams.map(
-    (team) => `
+    team => `
       <tr>
         <td>${team.promotion}</td>
         <td>${team.members}</td>
@@ -30,17 +30,17 @@ function onSubmit(e) {
   fetch("http://localhost:3000/teams-json/create", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       promotion: document.getElementById("promotion").value,
       members: document.getElementById("members").value,
       name: document.getElementById("name").value,
-      url: document.getElementById("url").value,
-    }),
+      url: document.getElementById("url").value
+    })
   })
-    .then((r) => r.json())
-    .then((status) => {
+    .then(r => r.json())
+    .then(status => {
       console.warn("status", status.success, status.id);
       if (status.success) {
         window.location.reload();
