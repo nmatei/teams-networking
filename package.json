@@ -1,0 +1,20 @@
+{
+  "name": "teams-networking",
+  "version": "1.0.0",
+  "description": "TODO...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmatei/teams-networking.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmatei/teams-networking/issues"
+  },
+  "homepage": "https://github.com/nmatei/teams-networking#readme"
+}
