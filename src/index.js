@@ -9,6 +9,16 @@ fetch("http://localhost:3000/teams-json", {
     displayTeams(teams);
   });
 
+function deleteTeamRequest(id) {
+  return fetch("http://localhost:3000/teams-json/delete", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ id })
+  });
+}
+
 function displayTeams(teams) {
   const teamsHTML = teams.map(
     team => `
@@ -57,7 +67,11 @@ function initEvents() {
   document.querySelector("#teams tbody").addEventListener("click", e => {
     if (e.target.matches("a")) {
       const id = e.target.dataset.id;
-      console.warn("delete", id);
+      const p = deleteTeamRequest(id);
+      p.then(r => r.json()).then(s => {
+        console.info("s", s);
+        window.location.reload();
+      });
     }
   });
 }
