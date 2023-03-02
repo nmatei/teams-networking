@@ -8,7 +8,7 @@ module.exports = env => {
     entry: ["./src/index.js"],
     devtool: isProduction ? false : "inline-source-map",
     devServer: {
-      static: ["dist", "src"],
+      static: ["docs", "src"],
       watchFiles: ["src/**/*.*"]
     },
     plugins: [
@@ -18,7 +18,7 @@ module.exports = env => {
     ],
     output: {
       filename: "main.js",
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "docs"),
       publicPath: "/"
     }
   };
