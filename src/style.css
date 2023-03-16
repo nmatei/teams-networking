@@ -23,3 +23,9 @@ table {
 #teams tfoot input:not([type="image" i]) {
   box-sizing: border-box;
 }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #00aeef;
+  opacity: 1; /* Firefox */
+}
