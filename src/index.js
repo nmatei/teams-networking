@@ -1,19 +1,14 @@
 let allTeams = [];
 let editId;
 
-fetch("http://localhost:3000/teams-json", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json"
-  }
-})
-  .then(r => r.json())
-  .then(teams => {
-    //window.teams = teams;
-    allTeams = teams;
-    console.info(teams);
-    displayTeams(teams);
-  });
+function loadTeamsRequest() {
+  return fetch("http://localhost:3000/teams-json", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(r => r.json());
+}
 
 function createTeamRequest(team) {
   return fetch("http://localhost:3000/teams-json/create", {
@@ -85,6 +80,15 @@ function displayTeams(teams) {
   document.querySelector("#teams tbody").innerHTML = getTeamsHTML(teams);
 }
 
+function loadTeams() {
+  loadTeamsRequest().then(teams => {
+    //window.teams = teams;
+    allTeams = teams;
+    console.info(teams);
+    displayTeams(teams);
+  });
+}
+
 function onSubmit(e) {
   e.preventDefault();
   const team = readTeam();
@@ -92,7 +96,11 @@ function onSubmit(e) {
     team.id = editId;
     updateTeamRequest(team).then(status => {
       if (status.success) {
-        window.location.reload();
+        // load new teams...?
+        loadTeams();
+        // TODO don't load teams
+        //displayTeams(allTeams);
+        e.target.reset();
       }
     });
   } else {
@@ -140,4 +148,5 @@ function initEvents() {
   });
 }
 
+loadTeams();
 initEvents();
