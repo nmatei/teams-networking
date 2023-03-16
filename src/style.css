@@ -1,3 +1,25 @@
 table {
   width: 100%;
+  border-collapse: collapse;
+}
+
+#teams th,
+#teams td {
+  border: 1px solid #29a7e1;
+  padding: 5px;
+}
+#teams th {
+  background-color: #00aeef;
+  color: white;
+}
+
+#teams tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#teams tfoot input[type="text"] {
+  width: 100%;
+}
+#teams tfoot input:not([type="image" i]) {
+  box-sizing: border-box;
 }
