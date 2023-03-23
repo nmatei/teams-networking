@@ -49,11 +49,11 @@ function readTeam() {
   };
 }
 
-function writeTeam(team) {
-  document.getElementById("promotion").value = team.promotion;
-  document.getElementById("members").value = team.members;
-  document.getElementById("name").value = team.name;
-  document.getElementById("url").value = team.url;
+function writeTeam({ promotion, members, name, url }) {
+  document.getElementById("promotion").value = promotion;
+  document.getElementById("members").value = members;
+  document.getElementById("name").value = name;
+  document.getElementById("url").value = url;
 }
 
 function getTeamsHTML(teams) {
