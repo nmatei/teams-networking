@@ -132,6 +132,9 @@ function prepareEdit(id) {
 function initEvents() {
   const form = document.getElementById("editForm");
   form.addEventListener("submit", onSubmit);
+  form.addEventListener("reset", () => {
+    editId = undefined;
+  });
 
   document.querySelector("#teams tbody").addEventListener("click", e => {
     if (e.target.matches("a.remove-btn")) {

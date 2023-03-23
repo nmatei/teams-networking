@@ -8,7 +8,7 @@ module.exports = env => {
     entry: ["./src/index.js"],
     devtool: isProduction ? false : "inline-source-map",
     devServer: {
-      static: ["docs", "src"],
+      static: ["src"],
       watchFiles: ["src/**/*.*"]
     },
     plugins: [
