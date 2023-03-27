@@ -13,6 +13,7 @@ You can also find new project ideas.
   - [x] **U**pdate
   - [x] **D**elete
 - [x] Search
+- [x] Loading mask
 
 ## 🎞 Live Preview
 
