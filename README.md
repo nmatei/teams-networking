@@ -5,11 +5,22 @@ Teams job related networking (members, project name, project url)
 In Current Demo you'll see some of projects created by my students.
 You can also find new project ideas.
 
-## Live Preview
+## 💠 Features & Usage
 
-- [Projects & Ideas](https://nmatei.github.io/teams-networking/)
+- [x] Teams Networking (CRUD\*) Operations
+  - [x] **C**reate
+  - [x] **R**ead
+  - [x] **U**pdate
+  - [x] **D**elete
+- [x] Search
 
-## Steps to create this project
+## 🎞 Live Preview
+
+- ➡ [Projects & Ideas](https://nmatei.github.io/teams-networking/)
+
+![Preview](images/preview.jpg)
+
+## 📋 Steps to create this project
 
 - [x] create **New repository** in [github/new](https://github.com/new)
   - [x] check Add a **README** file
