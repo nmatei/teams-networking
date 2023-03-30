@@ -59,17 +59,17 @@ function writeTeam({ promotion, members, name, url }) {
 function getTeamsHTML(teams) {
   return teams
     .map(
-      team => `
+      ({ promotion, members, name, url, id }) => `
       <tr>
-        <td>${team.promotion}</td>
-        <td>${team.members}</td>
-        <td>${team.name}</td>
+        <td>${promotion}</td>
+        <td>${members}</td>
+        <td>${name}</td>
         <td>
-          <a href="${team.url}" target="_blank">${team.url.replace("https://github.com/", "")}</a>
+          <a href="${url}" target="_blank">${url.replace("https://github.com/", "")}</a>
         </td>
         <td>
-          <a data-id="${team.id}" class="remove-btn">✖</a>
-          <a data-id="${team.id}" class="edit-btn">&#9998;</a>
+          <a data-id="${id}" class="remove-btn">✖</a>
+          <a data-id="${id}" class="edit-btn">&#9998;</a>
         </td>
       </tr>`
     )
