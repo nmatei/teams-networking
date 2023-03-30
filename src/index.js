@@ -155,7 +155,7 @@ function initEvents() {
     editId = undefined;
   });
 
-  document.querySelector("#teams tbody").addEventListener("click", e => {
+  document.querySelector("#teams tbody").addEventListener("click", async e => {
     if (e.target.matches("a.remove-btn")) {
       const id = e.target.dataset.id;
       deleteTeamRequest(id).then(status => {
@@ -164,6 +164,12 @@ function initEvents() {
           // TODO homework: don't load all teams...
         }
       });
+
+      const status = await deleteTeamRequest(id);
+      if (status.success) {
+        loadTeams();
+        // TODO homework: don't load all teams...
+      }
     } else if (e.target.matches("a.edit-btn")) {
       const id = e.target.dataset.id;
       prepareEdit(id);
