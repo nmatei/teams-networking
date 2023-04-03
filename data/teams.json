@@ -172,36 +172,43 @@
     "id": "25",
     "promotion": "2023-won11",
     "members": "Alexandra Gabriela Dan, Bodea Mihai Cristian, Mary-Ann Johanna Frunzete",
-    "name": "HR Software",
+    "name": "📅 HR Software",
     "url": "https://github.com/maryfru/HR-Software"
   },
   {
     "id": "26",
     "promotion": "2023-won11",
     "members": "Ciont Antonia Roxana, Iuhasz Pișcăran Riana Fiona, Tătaru Andreea Simona, Erema Marian",
-    "name": "Camara Virtuala",
+    "name": "🍽 Camara Virtuala",
     "url": "https://github.com/fioip/organizare-camara"
   },
   {
     "id": "27",
     "promotion": "2023-won11",
     "members": "Elena Zaharia, Vaida Aurel Nicolae, Valentin Constantinescu",
-    "name": "Quiz Game",
+    "name": "✅ Quiz Game",
     "url": "https://github.com/elenazaharia1/quiz-game"
   },
   {
     "id": "28",
     "promotion": "2023-won11",
     "members": "Deritei Norbert, Vălean Marius Laurențiu",
-    "name": "Rezervari Camping",
+    "name": "🏕 Rezervari Camping",
     "url": "https://github.com/norbideritei/PlayGround-Club"
   },
   {
     "id": "28",
     "promotion": "2023-won11",
     "members": "Birișan Răzvan",
-    "name": "Chess",
+    "name": "♟ Chess",
     "url": "https://github.com/razvbir/fasttrackit-won11-chess"
+  },
+  {
+    "id": "29",
+    "promotion": "2023-won11",
+    "members": "Velicu Mihai, Paun Andrei",
+    "name": "🎞 Cinema Ticketing",
+    "url": "https://github.com/Mihai2702/cinema-ticketing"
   },
   {
     "id": "001",
