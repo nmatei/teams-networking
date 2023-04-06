@@ -1,6 +1,6 @@
-import debounce from "lodash/debounce";
+// import debounce from "lodash/debounce";
 import { loadTeamsRequest, createTeamRequest, deleteTeamRequest, updateTeamRequest } from "./requests";
-import { $, sleep } from "./utilities";
+import { $, sleep, debounce } from "./utilities";
 // const utilities = require('./utilities');
 
 let allTeams = [];
@@ -142,14 +142,14 @@ loadTeams();
 initEvents();
 
 // TODO move in external file
-console.info("sleep");
-sleep(2000).then(r => {
-  console.info("done1", r);
-});
-console.warn("after sleep");
+// console.info("sleep");
+// sleep(2000).then(r => {
+//   console.info("done1", r);
+// });
+// console.warn("after sleep");
 
-(async () => {
-  console.info("sleep2");
-  var r2 = await sleep(5000);
-  console.warn("done2", r2);
-})();
+// (async () => {
+//   console.info("sleep2");
+//   var r2 = await sleep(5000);
+//   console.warn("done2", r2);
+// })();
