@@ -64,12 +64,11 @@ function loadTeams() {
 async function onSubmit(e) {
   e.preventDefault();
   const team = readTeam();
+  let status = { success: false };
   if (editId) {
     team.id = editId;
-    const status = await updateTeamRequest(team);
+    status = await updateTeamRequest(team);
     if (status.success) {
-      // load new teams...?
-      //loadTeams();
       allTeams = allTeams.map(t => {
         if (t.id === team.id) {
           return {
@@ -79,25 +78,18 @@ async function onSubmit(e) {
         }
         return t;
       });
-
-      displayTeams(allTeams);
-      e.target.reset();
     }
   } else {
-    const status = await createTeamRequest(team);
+    status = await createTeamRequest(team);
     if (status.success) {
-      // 1. adaugam datele in table...
-      //   1.0. adaug id in team
       team.id = status.id;
-      //   1.1. addaug team in allTeams
-      //allTeams.push(team);
       allTeams = [...allTeams, team];
-      //   1.2. apelam displayTeams(allTeams);
-      displayTeams(allTeams);
-      // 2. stergem datele din inputuri
-      //writeTeam({ promotion: "", name: "", url: "", members: "" });
-      e.target.reset();
     }
+  }
+
+  if (status.success) {
+    displayTeams(allTeams);
+    e.target.reset();
   }
 }
 
