@@ -1,5 +1,5 @@
 import { loadTeamsRequest, createTeamRequest, deleteTeamRequest, updateTeamRequest } from "./requests";
-import { sleep } from "./utilities";
+import { $, sleep } from "./utilities";
 // const utilities = require('./utilities');
 
 let allTeams = [];
@@ -47,7 +47,7 @@ function displayTeams(teams) {
     console.warn("same teams to display", oldDisplayTeams, teams);
     return;
   }
-  console.info(oldDisplayTeams, teams);
+  //console.info(oldDisplayTeams, teams);
   oldDisplayTeams = teams;
   document.querySelector("#teams tbody").innerHTML = getTeamsHTML(teams);
 }
@@ -100,14 +100,26 @@ function prepareEdit(id) {
   writeTeam(team);
 }
 
+function searchTeams(search) {
+  return allTeams.filter(team => {
+    return team.promotion.indexOf(search) > -1;
+  });
+}
+
 function initEvents() {
-  const form = document.getElementById("editForm");
+  const form = $("#editForm");
   form.addEventListener("submit", onSubmit);
   form.addEventListener("reset", () => {
     editId = undefined;
   });
 
-  document.querySelector("#teams tbody").addEventListener("click", async e => {
+  $("#search").addEventListener("input", e => {
+    const teams = searchTeams(e.target.value);
+    displayTeams(teams);
+    console.info("search");
+  });
+
+  $("#teams tbody").addEventListener("click", async e => {
     if (e.target.matches("a.remove-btn")) {
       const id = e.target.dataset.id;
       const status = await deleteTeamRequest(id);

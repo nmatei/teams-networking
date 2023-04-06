@@ -5,3 +5,7 @@ export function sleep(ms) {
     }, ms);
   });
 }
+
+export function $(selector) {
+  return document.querySelector(selector);
+}
