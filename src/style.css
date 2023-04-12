@@ -16,3 +16,14 @@ table th {
 table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
+.link-btn {
+  cursor: pointer;
+  color: #0096d6;
+}
+.remove-btn:hover {
+  color: #b90303;
+}
+.edit-btn:hover {
+  color: #039903;
+}
