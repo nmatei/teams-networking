@@ -111,8 +111,8 @@ function formSubmit(e) {
 
 function deleteTeam(id) {
   console.warn("delete", id);
-  deleteTeamRequest(id, () => {
-    console.info("callback success");
+  deleteTeamRequest(id, status => {
+    console.info("callback success", status);
     return id;
   }).then(status => {
     console.warn("status", status);
