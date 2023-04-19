@@ -183,8 +183,9 @@ function loadTeams(cb) {
     allTeams = teams;
     showTeams(teams);
     if (typeof cb === "function") {
-      cb();
+      cb(teams);
     }
+    return teams;
   });
 }
 
