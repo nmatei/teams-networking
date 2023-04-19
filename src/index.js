@@ -22,14 +22,23 @@ function createTeamRequest(team) {
   }).then(r => r.json());
 }
 
-function deleteTeamRequest(id) {
+function deleteTeamRequest(id, successDelete) {
   return fetch("http://localhost:3000/teams-json/delete", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ id })
-  }).then(r => r.json());
+  })
+    .then(r => r.json())
+    .then(status => {
+      console.warn("before remove ", status);
+      if (typeof successDelete === "function") {
+        const r = successDelete(status);
+        console.info("raspuns", r);
+      }
+      return status;
+    });
 }
 
 function updateTeamRequest(team) {
@@ -102,7 +111,10 @@ function formSubmit(e) {
 
 function deleteTeam(id) {
   console.warn("delete", id);
-  deleteTeamRequest(id).then(status => {
+  deleteTeamRequest(id, () => {
+    console.info("callback success");
+    return id;
+  }).then(status => {
     console.warn("status", status);
     if (status.success) {
       window.location.reload();
