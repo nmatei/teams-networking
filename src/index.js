@@ -97,8 +97,9 @@ function formSubmit(e) {
       console.info("updated", status);
       if (status.success) {
         //window.location.reload();
-        loadTeams();
-        $("#editForm").reset();
+        loadTeams().then(() => {
+          $("#editForm").reset();
+        });
       }
     });
   } else {
@@ -106,8 +107,9 @@ function formSubmit(e) {
       console.info("created", status);
       if (status.success) {
         // window.location.reload();
-        loadTeams();
-        $("#editForm").reset();
+        loadTeams(() => {
+          $("#editForm").reset();
+        });
       }
     });
   }
@@ -175,11 +177,14 @@ function initEvents() {
   });
 }
 
-function loadTeams() {
-  getTeamsRequest().then(teams => {
+function loadTeams(cb) {
+  return getTeamsRequest().then(teams => {
     //console.warn(this, window);
     allTeams = teams;
     showTeams(teams);
+    if (typeof cb === "function") {
+      cb();
+    }
   });
 }
 
