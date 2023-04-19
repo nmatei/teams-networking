@@ -58,7 +58,6 @@ function getTeamAsHTML(team) {
 
 function showTeams(teams) {
   const html = teams.map(getTeamAsHTML);
-  console.warn(html.join("").length);
   $("table tbody").innerHTML = html.join("");
 }
 
@@ -121,11 +120,31 @@ function startEditTeam(id) {
   $("#url").value = team.url;
 }
 
+function searchTeams(search) {
+  search = search.toLowerCase();
+  return allTeams.filter(team => {
+    return (
+      team.members.toLowerCase().includes(search) ||
+      team.name.toLowerCase().includes(search) ||
+      team.promotion.toLowerCase().includes(search) ||
+      team.url.toLowerCase().includes(search)
+    );
+  });
+}
+
 function initEvents() {
   const form = $("#editForm");
   form.addEventListener("submit", formSubmit);
   form.addEventListener("reset", () => {
     editId = undefined;
+  });
+
+  $("#search").addEventListener("input", e => {
+    //const search = $("#search").value;
+    const search = e.target.value;
+    console.info("search", search);
+    const teams = searchTeams(search);
+    showTeams(teams);
   });
 
   $("table tbody").addEventListener("click", e => {
