@@ -17,6 +17,13 @@ table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+table tfoot input[type="text"] {
+  width: 100%;
+}
+table tfoot input:not([type="image" i]) {
+  box-sizing: border-box;
+}
+
 .link-btn {
   cursor: pointer;
   color: #0096d6;
