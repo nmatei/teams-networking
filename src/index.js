@@ -65,12 +65,20 @@ function getTeamAsHTML(team) {
   </tr>`;
 }
 
-let previewDisplayedTeams;
+let previewDisplayedTeams = [];
 function showTeams(teams) {
   if (teams === previewDisplayedTeams) {
     console.info("same teams");
     return;
   }
+  if (teams.length === previewDisplayedTeams.length) {
+    var eqContent = teams.every((t, i) => t === previewDisplayedTeams[i]);
+    if (eqContent) {
+      console.info("same content");
+      return;
+    }
+  }
+
   previewDisplayedTeams = teams;
   const html = teams.map(getTeamAsHTML);
   $("table tbody").innerHTML = html.join("");
@@ -108,12 +116,22 @@ function formSubmit(e) {
         //   $("#editForm").reset();
         // });
         // v3
-        allTeams = [...allTeams];
-        var oldTeam = allTeams.find(t => t.id === team.id);
-        oldTeam.promotion = team.promotion;
-        oldTeam.members = team.members;
-        oldTeam.name = team.name;
-        oldTeam.url = team.url;
+        // allTeams = [...allTeams];
+        // //allTeams = JSON.parse(JSON.stringify(allTeams)); // deep clone
+        // console.info(allTeams.findIndex(t => t.id === team.id));
+        // var oldTeam = allTeams.find(t => t.id === team.id);
+        // oldTeam.promotion = team.promotion;
+        // oldTeam.members = team.members;
+        // oldTeam.name = team.name;
+        // oldTeam.url = team.url;
+
+        allTeams = allTeams.map(t => {
+          if (t.id === team.id) {
+            return team;
+          }
+          return t;
+        });
+
         showTeams(allTeams);
         $("#editForm").reset();
       }
