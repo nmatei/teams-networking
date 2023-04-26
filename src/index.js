@@ -244,12 +244,19 @@ function sleep(ms) {
   });
 }
 
-(() => {
-  console.info("start");
+(async () => {
+  console.info("1.start");
 
-  sleep(3000).then(() => {
-    console.info("ready to do %o!", "training");
-  });
+  // sleep(4000).then(() => {
+  //   console.info("4.ready to do %o!", "training");
+  // });
+  await sleep(4000);
+  console.info("4.ready to do %o!", "training");
+
+  console.warn("2.after sleep");
+
+  sleep(5000);
+  console.info("3.await sleep");
 })();
 
 loadTeams();
