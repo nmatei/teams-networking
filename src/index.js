@@ -113,21 +113,6 @@ function formSubmit(e) {
     console.warn("update...?", editId, team);
     updateTeamRequest(team).then(status => {
       if (status.success) {
-        //window.location.reload();
-        // TODO clone second level.
-        // loadTeams().then(() => {
-        //   $("#editForm").reset();
-        // });
-        // v3
-        // allTeams = [...allTeams];
-        // //allTeams = JSON.parse(JSON.stringify(allTeams)); // deep clone
-        // console.info(allTeams.findIndex(t => t.id === team.id));
-        // var oldTeam = allTeams.find(t => t.id === team.id);
-        // oldTeam.promotion = team.promotion;
-        // oldTeam.members = team.members;
-        // oldTeam.name = team.name;
-        // oldTeam.url = team.url;
-
         allTeams = allTeams.map(t => {
           if (t.id === team.id) {
             return {
@@ -145,13 +130,6 @@ function formSubmit(e) {
   } else {
     createTeamRequest(team).then(({ success, id }) => {
       if (success) {
-        // v.1
-        // window.location.reload();
-        // v.2
-        // loadTeams(() => {
-        //   $("#editForm").reset();
-        // });
-        // v.3
         team.id = id;
         //allTeams.push(team);
         allTeams = [...allTeams, team];
@@ -164,14 +142,10 @@ function formSubmit(e) {
 
 async function deleteTeam(id) {
   console.warn("delete", id);
-  const status = await deleteTeamRequest(id, status => {
-    console.info("callback success", status);
-    return id;
-  });
-  console.warn("status", status);
-  if (status.success) {
-    //window.location.reload();
-    loadTeams();
+  const { success } = await deleteTeamRequest(id);
+  if (success) {
+    allTeams = allTeams.filter(t => t.id !== id);
+    showTeams(allTeams);
   }
 }
 
