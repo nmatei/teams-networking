@@ -218,8 +218,8 @@ function sleep(ms) {
 
 (async () => {
   $("#editForm").classList.add("loading-mask");
-  loadTeams();
-  await sleep(1000);
+  await loadTeams();
+  await sleep(100);
   $("#editForm").classList.remove("loading-mask");
 
   console.info("1.start");
