@@ -111,22 +111,21 @@ async function formSubmit(e) {
   if (editId) {
     team.id = editId;
     console.warn("update...?", editId, team);
-    updateTeamRequest(team).then(status => {
-      if (status.success) {
-        allTeams = allTeams.map(t => {
-          if (t.id === team.id) {
-            return {
-              ...t, // old props (eg. createdBy, createdAt)
-              ...team
-            };
-          }
-          return t;
-        });
+    const status = await updateTeamRequest(team);
+    if (status.success) {
+      allTeams = allTeams.map(t => {
+        if (t.id === team.id) {
+          return {
+            ...t, // old props (eg. createdBy, createdAt)
+            ...team
+          };
+        }
+        return t;
+      });
 
-        showTeams(allTeams);
-        $("#editForm").reset();
-      }
-    });
+      showTeams(allTeams);
+      $("#editForm").reset();
+    }
   } else {
     const { success, id } = await createTeamRequest(team);
     if (success) {
