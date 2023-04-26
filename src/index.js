@@ -244,9 +244,13 @@ function sleep(ms) {
   });
 }
 
-sleep(3000).then(() => {
-  console.info("ready to do %o!", "training");
-});
+(() => {
+  console.info("start");
+
+  sleep(3000).then(() => {
+    console.info("ready to do %o!", "training");
+  });
+})();
 
 loadTeams();
 
