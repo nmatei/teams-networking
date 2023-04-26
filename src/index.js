@@ -162,18 +162,17 @@ function formSubmit(e) {
   }
 }
 
-function deleteTeam(id) {
+async function deleteTeam(id) {
   console.warn("delete", id);
-  deleteTeamRequest(id, status => {
+  const status = await deleteTeamRequest(id, status => {
     console.info("callback success", status);
     return id;
-  }).then(status => {
-    console.warn("status", status);
-    if (status.success) {
-      //window.location.reload();
-      loadTeams();
-    }
   });
+  console.warn("status", status);
+  if (status.success) {
+    //window.location.reload();
+    loadTeams();
+  }
 }
 
 function startEditTeam(edit) {
