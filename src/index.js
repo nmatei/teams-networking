@@ -92,7 +92,7 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
-function formSubmit(e) {
+async function formSubmit(e) {
   e.preventDefault();
   //console.warn("submit", e);
 
@@ -128,15 +128,14 @@ function formSubmit(e) {
       }
     });
   } else {
-    createTeamRequest(team).then(({ success, id }) => {
-      if (success) {
-        team.id = id;
-        //allTeams.push(team);
-        allTeams = [...allTeams, team];
-        showTeams(allTeams);
-        $("#editForm").reset();
-      }
-    });
+    const { success, id } = await createTeamRequest(team);
+    if (success) {
+      team.id = id;
+      //allTeams.push(team);
+      allTeams = [...allTeams, team];
+      showTeams(allTeams);
+      $("#editForm").reset();
+    }
   }
 }
 
