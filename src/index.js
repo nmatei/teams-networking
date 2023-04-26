@@ -197,16 +197,15 @@ function initEvents() {
   });
 }
 
-function loadTeams(cb) {
-  return getTeamsRequest().then(teams => {
-    //console.warn(this, window);
-    allTeams = teams;
-    showTeams(teams);
-    if (typeof cb === "function") {
-      cb(teams);
-    }
-    return teams;
-  });
+async function loadTeams(cb) {
+  const teams = await getTeamsRequest();
+  //console.warn(this, window);
+  allTeams = teams;
+  showTeams(teams);
+  if (typeof cb === "function") {
+    cb(teams);
+  }
+  return teams;
 }
 
 function sleep(ms) {
