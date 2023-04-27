@@ -211,22 +211,29 @@
     "url": "https://github.com/Mihai2702/cinema-ticketing"
   },
   {
+    "id": "30",
+    "promotion": "2023-won11",
+    "members": "Faragau Dan, Faragau Giulia",
+    "name": "🛒 Shopping List",
+    "url": "https://github.com/faragaudan/shopping-list"
+  },
+  {
     "id": "001",
-    "promotion": "soon",
+    "promotion": "proposal",
     "members": "Nicolae Matei",
-    "name": "Test daruri spirituale",
+    "name": "Test daruri spirituale OR Personality",
     "url": ""
   },
   {
     "id": "002",
-    "promotion": "soon",
+    "promotion": "proposal",
     "members": "Nicolae Matei",
     "name": "📆 Daily TODO list",
     "url": "https://salefeature.com/product?pid=2506186936931442993-9-14-1652339366&sh=14&ssn=facebook&adu=ms&fbclid=IwAR3JD3Z3kyfeprye4u3YkkRDttAJbYM8x7wyNxwHOeItfeoUTCG9x1l2zRo_aem_AYi_MZh1SAI4S1MzEgifaS86Z3cCVD-mCUJp9anEcgABqbbixZY9dgDw1Usxg4u6fRa1NumeOgHvHBdA0MaNt9nyOCKhmQufZgPsMH3uVQMbxWZDJP1x0-hb84HI10EVmGs"
   },
   {
     "id": "003",
-    "promotion": "soon",
+    "promotion": "proposal",
     "members": "Nicolae Matei",
     "name": "💬 Funny whatsup",
     "url": "https://m.youtube.com/c/1minutderas"
@@ -240,7 +247,7 @@
   },
   {
     "id": "005",
-    "promotion": "soon",
+    "promotion": "proposal",
     "members": "Nicolae Matei",
     "name": "✋ Catalog & Prezența simplificată - sală / online / lipsă",
     "description": "automat pentru cei prezenti in sală (pe baza numele pc-ului)",
@@ -248,14 +255,14 @@
   },
   {
     "id": "006",
-    "promotion": "soon",
+    "promotion": "proposal",
     "members": "Nicolae Matei",
     "name": "📅 Orar pentru scoala/facultate",
     "url": ""
   },
   {
     "id": "007",
-    "promotion": "soon",
+    "promotion": "proposal",
     "members": "Nicolae Matei",
     "name": "🛒 Best prices in stores",
     "description": "show me best in this store, create shoping list and update prices in each store",
@@ -263,7 +270,7 @@
   },
   {
     "id": "008",
-    "promotion": "soon",
+    "promotion": "proposal",
     "members": "Nicolae Matei",
     "name": "👨‍👩‍👧‍👦 Copii vs Parinti",
     "description": "Joc pentru parinti si copii (concurs de intrebari din cultura generala)",
