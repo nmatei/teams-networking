@@ -12,6 +12,9 @@ function getTeamAsHTML({ id, url, promotion, members, name }) {
   }
   return `
   <tr>
+    <td>
+      <input type="checkbox" name="selected" />
+    </td>
     <td>${promotion}</td>
     <td>${members}</td>
     <td>${name}</td>
@@ -128,12 +131,22 @@ function searchTeams(teams, search) {
   });
 }
 
+function removeSelected() {
+  console.warn("removeSelected");
+  // find ids...
+  // add mask...
+  // call remove deleteTeamRequest
+  // remove mask
+}
+
 function initEvents() {
   const form = $("#editForm");
   form.addEventListener("submit", formSubmit);
   form.addEventListener("reset", () => {
     editId = undefined;
   });
+
+  $("#removeSelected").addEventListener("click", removeSelected);
 
   $("#search").addEventListener(
     "input",
