@@ -133,15 +133,10 @@ function searchTeams(teams, search) {
 
 async function removeSelected() {
   const checkboxes = $$("#editForm input[name=selected]:checked");
-  console.warn("removeSelected", checkboxes);
-  const ids = [...checkboxes].map(checkbox => checkbox.value);
-  console.warn("removeSelected ids", ids);
+  const ids = [...checkboxesx].map(checkbox => checkbox.value);
   $("#editForm").classList.add("loading-mask");
-
   const promises = ids.map(id => deleteTeamRequest(id));
   const results = await Promise.allSettled(promises);
-  console.warn("remove results", results);
-
   await loadTeams();
   $("#editForm").classList.remove("loading-mask");
 }
