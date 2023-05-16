@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clear": "npm run clean && rimraf node_modules",
-    "clean": "rimraf dist",
+    "clean": "rimraf docs",
     "build": "webpack --mode production",
     "start": "webpack serve --open",
-    "demo": "set PORT=8080 && serve dist"
+    "demo": "set PORT=8080 && serve docs"
   },
   "keywords": [],
   "author": "",
