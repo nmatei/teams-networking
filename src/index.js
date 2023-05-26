@@ -2,6 +2,8 @@
 import { getTeamsRequest, updateTeamRequest, createTeamRequest, deleteTeamRequest } from "./requests";
 import { $, $$, debounce, sleep } from "./utils";
 
+import "./style.css";
+
 let allTeams = [];
 var editId;
 
