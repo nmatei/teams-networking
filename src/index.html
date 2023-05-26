@@ -8,55 +8,78 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div style="padding: 0 0 5px 0">
-      <button id="removeSelected">❌ Remove Selected</button>
-      <input type="search" name="search" id="search" />
-    </div>
-    <form id="editForm" action="" method="post">
-      <table>
-        <colgroup>
-          <col span="1" style="width: 40px" />
-          <col span="1" style="width: 125px" />
-          <col span="1" />
-          <col span="1" />
-          <col span="1" />
-          <col span="1" style="width: 80px" />
-        </colgroup>
-        <thead>
-          <tr>
-            <th>
-              <input type="checkbox" name="selectAll" id="selectAll" />
-            </th>
-            <th>Promotion</th>
-            <th>Members</th>
-            <th>Project Name</th>
-            <th>Project URL</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-          <tr>
-            <td></td>
-            <td>
-              <input type="text" name="promotion" id="promotion" placeholder="Enter Promotion" required />
-            </td>
-            <td>
-              <input type="text" name="members" id="members" placeholder="Enter members" required />
-            </td>
-            <td>
-              <input type="text" name="name" id="name" placeholder="Enter project name" required />
-            </td>
-            <td>
-              <input type="text" name="url" id="url" placeholder="Enter URL" required />
-            </td>
-            <td>
-              <button type="submit">💾</button>
-              <button type="reset">✖</button>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </form>
+    <header>
+      <div id="header-wraper">
+        <div id="my-picture">
+          <img src="images/network-team-icon.png" width="100" alt="Teams" />
+        </div>
+        <div id="header-info">
+          <h1>Teams Networking</h1>
+          <h2 id="job-title">
+            CRUD operations example (<strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate,
+            <strong>D</strong>elete)
+          </h2>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div style="padding: 0 0 5px 0">
+        <button id="removeSelected">❌ Remove Selected</button>
+        <input type="search" name="search" id="search" />
+      </div>
+      <form id="editForm" action="" method="post">
+        <table>
+          <colgroup>
+            <col span="1" style="width: 40px" />
+            <col span="1" style="width: 125px" />
+            <col span="1" />
+            <col span="1" />
+            <col span="1" />
+            <col span="1" style="width: 80px" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" name="selectAll" id="selectAll" />
+              </th>
+              <th>Promotion</th>
+              <th>Members</th>
+              <th>Project Name</th>
+              <th>Project URL</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td>
+                <input type="text" name="promotion" id="promotion" placeholder="Enter Promotion" required />
+              </td>
+              <td>
+                <input type="text" name="members" id="members" placeholder="Enter members" required />
+              </td>
+              <td>
+                <input type="text" name="name" id="name" placeholder="Enter project name" required />
+              </td>
+              <td>
+                <input type="text" name="url" id="url" placeholder="Enter URL" required />
+              </td>
+              <td>
+                <button type="submit">💾</button>
+                <button type="reset">✖</button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </form>
+    </section>
+
+    <footer>
+      <a href="https://github.com/nmatei/node-api" target="_blank">📃 API Docs</a>
+      |
+      <a href="https://github.com/nmatei/teams-networking/tree/transilvania01" target="_blank">👩‍💻 Source Code</a>
+    </footer>
   </body>
 </html>

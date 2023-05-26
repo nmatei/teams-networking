@@ -1,3 +1,62 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 0 0px;
+  background-image: url(images/th.png);
+}
+
+body > section {
+  flex: 1;
+  padding: 15px;
+}
+footer {
+  padding: 5px;
+  text-align: center;
+  background: #00aeef;
+  color: white;
+}
+
+#header-wraper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(45deg, #0798abfa, transparent);
+}
+#my-picture {
+  padding: 5px;
+  width: 108px;
+  height: 108px;
+}
+#my-picture img {
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background-color: #ffffff90;
+}
+#header-info {
+  flex: 1;
+  padding: 10px;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+h1 {
+  margin: 5px 0;
+  color: #ffffff;
+}
+#job-title {
+  color: #ffffff;
+  margin: 5px 0;
+  font-weight: 100;
+  font-size: 1.2em;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
