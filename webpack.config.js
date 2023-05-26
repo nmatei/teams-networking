@@ -19,7 +19,7 @@ module.exports = env => {
     output: {
       filename: "main.js",
       path: path.resolve(__dirname, "docs"),
-      publicPath: "/"
+      publicPath: ""
     }
   };
 };
