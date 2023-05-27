@@ -34,7 +34,7 @@ You can also find new project ideas.
   - [x] hint - TABLE -> THEAD & TBODY & TFOOT tags
 - [ ] load team.json and render them in page
 
-## Connect with API
+## 🧩 Connect with API
 
 Current app can connect with external [node-API](https://github.com/nmatei/node-api) to store it's data.
 
