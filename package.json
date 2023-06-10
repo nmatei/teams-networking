@@ -1,0 +1,12 @@
+{
+  "name": "teams-networking",
+  "version": "1.0.0",
+  "description": "this is the example used for udemy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Matei Nicolae",
+  "license": "ISC"
+}
