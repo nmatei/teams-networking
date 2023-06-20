@@ -50,7 +50,7 @@ body > section {
 footer {
   padding: 5px;
   text-align: center;
-  background: #00aeef;
+  background: #057988;
   color: white;
 }
 footer a,
@@ -65,7 +65,7 @@ footer a:visited {
 }
 footer a:hover {
   text-decoration: none;
-  background-color: #038dc1;
+  background-color: #0798ab;
 }
 
 #list {
@@ -73,12 +73,12 @@ footer a:hover {
   width: 100%;
 }
 #list th {
-  background-color: #00aeef;
+  background-color: #0798ab;
   color: white;
 }
 #list th,
 #list td {
-  border: 1px solid #29a7e1;
+  border: 1px solid #057988;
   padding: 5px;
 }
 #list tr:nth-child(even) {
