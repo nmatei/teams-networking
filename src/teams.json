@@ -4,13 +4,20 @@
     "promotion": "FastTrackIT",
     "members": "Nicolae Matei",
     "name": "Teams Networking",
-    "url": "https://github.com/nmatei/teams-networking"
+    "url": "https://github.com/nmatei/nmatei.github.io"
   },
   {
     "id": 2,
     "promotion": "Transilvania 03",
     "members": "noi",
     "name": "trei",
+    "url": "https://github.com/nmatei/teams-networking"
+  },
+  {
+    "id": 3,
+    "promotion": "Transilvania 02",
+    "members": "ei",
+    "name": "doi",
     "url": "https://github.com/nmatei/teams-networking"
   }
 ]
