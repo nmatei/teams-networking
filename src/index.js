@@ -27,6 +27,16 @@ function updateTeamRequest(team) {
   }).then(r => r.json());
 }
 
+function createTeamRequest(team) {
+  return fetch("http://localhost:3000/teams-json/create", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(team)
+  }).then(r => r.json());
+}
+
 function getTeamAsHTML(team) {
   return `<tr>
     <td>${team.promotion}</td>
@@ -77,19 +87,27 @@ function onSubmit(e) {
   const name = $("input[name=name]").value;
   const url = $("input[name=url]").value;
   const team = {
-    id: editId,
     promotion,
     members,
     name: name,
     url: url
   };
-  console.warn("submit", team);
-  updateTeamRequest(team).then(status => {
-    if (status.success) {
-      // v.1
-      window.location.reload();
-    }
-  });
+  if (editId) {
+    team.id = editId;
+    updateTeamRequest(team).then(status => {
+      if (status.success) {
+        // v.1
+        window.location.reload();
+      }
+    });
+  } else {
+    createTeamRequest(team).then(status => {
+      if (status.success) {
+        // v.1
+        window.location.reload();
+      }
+    });
+  }
 }
 
 function initEvents() {
