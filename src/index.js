@@ -112,12 +112,12 @@ function onSubmit(e) {
 function searchTeams(e) {
   let searchText = e.target.value.toLowerCase();
   const teams = allTeams.filter(team => {
-    return (
-      team.promotion.toLowerCase().includes(searchText) ||
-      team.members.toLowerCase().includes(searchText) ||
-      team.name.toLowerCase().includes(searchText) ||
-      team.url.toLowerCase().includes(searchText)
-    );
+    const matches = Object.entries(team).some(entry => {
+      if (entry[0] !== "id") {
+        return entry[1].toLowerCase().includes(searchText);
+      }
+    });
+    return matches;
   });
   displayTeams(teams);
 }
