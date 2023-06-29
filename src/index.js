@@ -111,7 +111,6 @@ function onSubmit(e) {
 
 function searchTeams(e) {
   let searchText = e.target.value.toLowerCase();
-  console.info(searchTeams);
   const teams = allTeams.filter(team => {
     return (
       team.promotion.toLowerCase().includes(searchText) ||
