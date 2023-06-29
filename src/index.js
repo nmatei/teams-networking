@@ -72,7 +72,6 @@ function loadTeams() {
 function startEdit(id) {
   editId = id;
   const team = allTeams.find(team => team.id == id);
-  console.warn("start edit", team);
 
   $("#promotion").value = team.promotion;
   $("#members").value = team.members;
@@ -110,7 +109,14 @@ function onSubmit(e) {
   }
 }
 
+function searchTeams(e) {
+  let searchText = e.target.value;
+  console.info(searchTeams);
+}
+
 function initEvents() {
+  $("#searchTeams").addEventListener("input", searchTeams);
+
   $("#teamsTable tbody").addEventListener("click", e => {
     if (e.target.matches("a.remove-btn")) {
       const id = e.target.dataset.id;
