@@ -7,14 +7,21 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
-function deleteTeamRequest(id) {
+function deleteTeamRequest(id, callback) {
   return fetch("http://localhost:3000/teams-json/delete", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ id: id })
-  }).then(r => r.json());
+  })
+    .then(r => r.json())
+    .then(status => {
+      if (typeof callback === "function") {
+        callback(status);
+      }
+      return status;
+    });
 }
 
 function updateTeamRequest(team) {
@@ -139,9 +146,9 @@ function initEvents() {
     if (e.target.matches("a.remove-btn")) {
       const id = e.target.dataset.id;
       //console.warn("remove %o", id);
-      deleteTeamRequest(id).then(status => {
+      deleteTeamRequest(id, status => {
         if (status.success) {
-          //console.warn("delete done", status);
+          console.warn("delete done", status);
           loadTeams();
         }
       });
