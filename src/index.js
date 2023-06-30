@@ -1,1 +1,3 @@
-console.warn("start app");
+import "./style.css";
+
+console.warn("start app!");
