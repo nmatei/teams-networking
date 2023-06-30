@@ -1,1 +1,1 @@
-console.warn("start app");
+console.warn("start app", 2 + 3);
