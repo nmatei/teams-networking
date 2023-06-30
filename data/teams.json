@@ -290,5 +290,13 @@
     "name": "⏳☕ Custom 'timer' to use for breaks",
     "description": "",
     "url": "https://e.ggtimer.com/5minutes"
+  },
+  {
+    "id": "010",
+    "promotion": "proposal",
+    "members": "Nicolae Matei",
+    "name": "🃏 Poker planning",
+    "description": "Scrum Poker for agile development teams",
+    "url": "https://planningpokeronline.com/"
   }
 ]
