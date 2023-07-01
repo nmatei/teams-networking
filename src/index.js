@@ -17,7 +17,12 @@ function renderTeams(teams) {
 }
 
 function loadTeams() {
-  fetch("teams.json")
+  fetch("http://localhost:3000/teams-json", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
     .then(r => r.json())
     .then(teams => {
       renderTeams(teams);
