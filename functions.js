@@ -286,15 +286,22 @@ function addEventListeners() {
     showTeams(filtrate);
   });
 
-  const form = document.querySelector("#editForm");
+  const form = $("#editForm");
   form.addEventListener("submit", submitTeam);
   form.addEventListener("reset", () => {
     console.debug("reset %o", editId);
     editId = undefined;
   });
 
-  const table = document.querySelector("#list tbody");
-  table.addEventListener("click", e => {
+  const tbody = $("#list tbody");
+
+  $("#selectAll").addEventListener("input", e => {
+    tbody.querySelectorAll("input[name=selected]").forEach(check => {
+      check.checked = e.target.checked;
+    });
+  });
+
+  tbody.addEventListener("click", e => {
     const target = e.target;
     if (target.matches("a.delete-row")) {
       const id = target.getAttribute("data-id");
