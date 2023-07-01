@@ -54,6 +54,19 @@ footer {
   padding: 7px;
 }
 
+.tbar {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.tfill {
+  flex: 1;
+}
+.tbar label {
+  padding: 0 5px;
+}
+
 #teamsTable {
   width: 100%;
   border-collapse: collapse;
