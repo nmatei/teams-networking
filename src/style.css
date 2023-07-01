@@ -53,3 +53,21 @@ footer {
   text-align: center;
   padding: 7px;
 }
+
+#teamsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+#teamsTable th,
+#teamsTable td {
+  border: 1px solid #057988;
+  padding: 5px;
+}
+
+#teamsTable th {
+  color: white;
+  background: #0798ab;
+}
+#teamsTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
