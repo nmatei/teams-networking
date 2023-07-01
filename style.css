@@ -12,11 +12,7 @@ header {
   padding: 0 0px;
   background-image: url(images/th.png);
 }
-h1 {
-  margin: 5px 0;
-  color: #ffffff;
-}
-#header-wraper {
+#header-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,9 +23,13 @@ h1 {
   padding: 10px;
   text-shadow: 1px 1px 2px #000000;
 }
-#job-title {
-  color: #ffffff;
+h1 {
   margin: 5px 0;
+  color: #ffffff;
+}
+h2 {
+  margin: 5px 0;
+  color: #ffffff;
   font-weight: 100;
   font-size: 1.2em;
 }
@@ -130,15 +130,11 @@ a:hover {
 
 .tbar {
   margin-bottom: 5px;
-}
-.tbar-lr {
   display: flex;
+  align-items: center;
 }
-.tbar-left {
+.tfill {
   flex: 1;
-}
-.tbar-right {
-  margin-left: 20px;
 }
 
 .loading-mask {

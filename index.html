@@ -7,13 +7,13 @@
 
   <body>
     <header>
-      <div id="header-wraper">
+      <div id="header-wrapper">
         <div id="my-picture">
           <img src="images/network-team-icon.png" width="100" alt="Teams" />
         </div>
         <div id="header-info">
           <h1>Teams Networking</h1>
-          <h2 id="job-title">
+          <h2>
             CRUD operations example (<strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate,
             <strong>D</strong>elete)
           </h2>
@@ -22,13 +22,11 @@
     </header>
 
     <section>
-      <div class="tbar tbar-lr">
-        <div class="tbar-left">
-          <button id="removeSelected">❌ Remove selected</button>
-        </div>
-        <div class="tbar-right">
-          <input type="search" id="search" placeholder="Search" /><label for="search">&#128270;</label>
-        </div>
+      <div class="tbar">
+        <button id="removeSelected">❌ Remove selected</button>
+        <div class="tfill"></div>
+        <input type="search" id="search" placeholder="Search" />
+        <label for="search">🔎</label>
       </div>
       <form id="editForm">
         <table id="list">
