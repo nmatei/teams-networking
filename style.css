@@ -129,12 +129,15 @@ a:hover {
 }
 
 .tbar {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 .tfill {
   flex: 1;
+}
+.tbar label {
+  padding: 0 5px;
 }
 
 .loading-mask {
