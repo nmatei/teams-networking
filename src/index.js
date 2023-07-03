@@ -111,9 +111,12 @@ function onSubmit(e) {
     team.id = editId;
     updateTeamRequest(team).then(status => {
       if (status.success) {
-        //loadTeams();
-        const i = allTeams.findIndex(t => t.id === editId);
-        allTeams[i] = team;
+        // const i = allTeams.findIndex(t => t.id === editId);
+        // allTeams[i] = team;
+
+        const edited = allTeams.find(t => t.id === editId);
+        Object.assign(edited, team);
+
         displayTeams(allTeams);
         $("#teamsForm").reset();
       }
