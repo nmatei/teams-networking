@@ -121,6 +121,7 @@ function onSubmit(e) {
         // const i = allTeams.findIndex(t => t.id === editId);
         // allTeams[i] = team;
 
+        allTeams = [...allTeams];
         const edited = allTeams.find(t => t.id === editId);
         Object.assign(edited, team);
 
