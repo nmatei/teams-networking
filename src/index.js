@@ -25,6 +25,10 @@ function deleteTeamRequest(id, callback) {
 }
 
 function updateTeamRequest(team) {
+  setTimeout(() => {
+    console.warn("updated");
+    team.members = "😎";
+  }, 5000);
   return fetch("http://localhost:3000/teams-json/update", {
     method: "PUT",
     headers: {
@@ -127,12 +131,18 @@ function onSubmit(e) {
     team.id = editId;
     updateTeamRequest(team).then(status => {
       if (status.success) {
-        // const i = allTeams.findIndex(t => t.id === editId);
-        // allTeams[i] = team;
-
-        allTeams = [...allTeams];
-        const edited = allTeams.find(t => t.id === editId);
-        Object.assign(edited, team);
+        allTeams = allTeams.map(t => {
+          if (t.id === editId) {
+            console.warn("team", team);
+            // return team;
+            // return { ...team };
+            return {
+              ...t,
+              ...team
+            };
+          }
+          return t;
+        });
 
         displayTeams(allTeams);
         $("#teamsForm").reset();
