@@ -162,9 +162,9 @@ function onSubmit(e) {
 function filterElements(elements, search) {
   search = search.toLowerCase();
   return elements.filter(element => {
-    return Object.entries(element).some(entry => {
-      if (entry[0] !== "id") {
-        return entry[1].toLowerCase().includes(search);
+    return Object.entries(element).some(([key, value]) => {
+      if (key !== "id") {
+        return value.toLowerCase().includes(search);
       }
     });
   });
