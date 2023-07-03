@@ -47,6 +47,8 @@ function sleep(ms) {
 }
 
 function showTeams(teams) {
+  teams.sort((a, b) => (a.createdBy || "").localeCompare(b.createdBy));
+
   const search = document.getElementById("search").value;
   const tbody = document.querySelector("#list tbody");
   // TODO not working if search parts of HTML
@@ -92,12 +94,17 @@ function getTeamsAsHtml(teams, search) {
 function getTeamAsHtml(team, search) {
   const url = team.url;
   const displayUrl = url ? (url.includes("//github.com/") ? url.replace("https://github.com/", "") : "view") : "";
+  const avatar = team.createdBy;
   return `<tr>
     <td style="text-align: center">
       <input type="checkbox" name="selected" value="${team.id}">
     </td>
     <td>
-      <span class="circle-bullet" style="background: ${stringToColour(team.promotion)};"></span>
+      ${
+        team.createdBy === "nmatei"
+          ? `<img src="https://avatars.githubusercontent.com/u/2863309?s=48&amp;v=4" width="24" height="24" class="avatar-user">`
+          : `<span class="circle-bullet" style="background: ${stringToColour(team.promotion)};"></span>`
+      }
       ${highlight(team.promotion, search)}
     </td>
     <td>${highlight(team.members.split(/\s*,\s*/).join(membersBreak), search)}</td>
@@ -123,13 +130,6 @@ function loadList() {
       showTeams(data);
     });
 }
-
-$("#editForm").classList.add("loading-mask");
-sleep(isDemo ? 1000 : 0).then(() => {
-  loadList().then(() => {
-    $("#editForm").classList.remove("loading-mask");
-  });
-});
 
 function searchTeams(text) {
   text = text.toLowerCase();
@@ -314,3 +314,10 @@ function addEventListeners() {
 }
 
 addEventListeners();
+
+$("#editForm").classList.add("loading-mask");
+sleep(isDemo ? 1000 : 0).then(() => {
+  loadList().then(() => {
+    $("#editForm").classList.remove("loading-mask");
+  });
+});
