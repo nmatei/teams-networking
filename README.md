@@ -10,6 +10,15 @@ npm install
 
 ## Start (Daily usage)
 
+in other terminal open:
+
+```sh
+cd c:/Products/node-api
+npm start
+```
+
+in current project run:
+
 ```sh
 npm start
 ```
