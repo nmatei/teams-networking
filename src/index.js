@@ -1,9 +1,9 @@
 import "./style.css";
-import { $, mask, unmask } from "./utilities";
+import { $, filterElements, mask, unmask } from "./utilities";
 
 let editId;
 let allTeams = [];
-const form = $("#teamsForm");
+const form = "#teamsForm";
 
 function loadTeamsRequest() {
   return fetch("http://localhost:3000/teams-json", {
@@ -163,17 +163,6 @@ async function onSubmit(e) {
     $("#teamsForm").reset();
     unmask(form);
   }
-}
-
-function filterElements(elements, search) {
-  search = search.toLowerCase();
-  return elements.filter(element => {
-    return Object.entries(element).some(([key, value]) => {
-      if (key !== "id") {
-        return value.toLowerCase().includes(search);
-      }
-    });
-  });
 }
 
 function initEvents() {

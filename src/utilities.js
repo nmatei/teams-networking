@@ -2,13 +2,26 @@ export function $(selector) {
   return document.querySelector(selector);
 }
 
+/**
+ *
+ * @param {String|Element} el
+ */
 export function mask(el) {
-  el.classList.add("loading-mask");
-  //$("#teamsForm").classList.add("loading-mask");
+  if (typeof el === "string") {
+    el = $(el);
+  }
+  el && el.classList.add("loading-mask");
 }
 
+/**
+ *
+ * @param {String|Element} el
+ */
 export function unmask(el) {
-  el.classList.remove("loading-mask");
+  if (typeof el === "string") {
+    el = $(el);
+  }
+  el && el.classList.remove("loading-mask");
 }
 
 export function sleep(ms) {
@@ -16,6 +29,17 @@ export function sleep(ms) {
     setTimeout(() => {
       resolve();
     }, ms);
+  });
+}
+
+export function filterElements(elements, search) {
+  search = search.toLowerCase();
+  return elements.filter(element => {
+    return Object.entries(element).some(([key, value]) => {
+      if (key !== "id") {
+        return value.toLowerCase().includes(search);
+      }
+    });
   });
 }
 
