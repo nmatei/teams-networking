@@ -27,18 +27,47 @@
         <label for="search">🔎</label>
       </div>
 
-      <table id="teamsTable">
-        <thead>
-          <tr>
-            <th>Promotion</th>
-            <th>Members</th>
-            <th>Project Name</th>
-            <th>Project URL</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <form action="secretary.html" method="get">
+        <table id="teamsTable">
+          <colgroup>
+            <col span="1" />
+            <col span="1" />
+            <col span="1" />
+            <col span="1" />
+            <col span="1" style="width: 80px" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Promotion</th>
+              <th>Members</th>
+              <th>Project Name</th>
+              <th>Project URL</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <input required type="text" name="promotion" id="promotion" placeholder="Enter promotion" />
+              </td>
+              <td>
+                <input required type="text" name="members" id="members" placeholder="Enter members" />
+              </td>
+              <td>
+                <input required type="text" name="name" id="name" placeholder="Enter project name" />
+              </td>
+              <td>
+                <input required type="text" name="url" id="url" placeholder="Enter project url" />
+              </td>
+              <td>
+                <button type="submit">💾</button>
+                <button type="reset">✖</button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </form>
     </section>
 
     <footer>📃 API Docs | 👨‍💻 Source Code</footer>
