@@ -140,11 +140,12 @@ async function onSubmit(e) {
   const team = getTeamValues();
 
   showLoadingMask();
+  let status;
 
   if (editId) {
     team.id = editId;
-    const { success } = await updateTeamRequest(team);
-    if (success) {
+    status = await updateTeamRequest(team);
+    if (status.success) {
       allTeams = allTeams.map(t => {
         if (t.id === editId) {
           console.warn("team", team);
@@ -157,24 +158,20 @@ async function onSubmit(e) {
         }
         return t;
       });
-
-      displayTeams(allTeams);
-      $("#teamsForm").reset();
-
-      hideLoadingMask();
     }
   } else {
-    const status = await createTeamRequest(team);
+    status = await createTeamRequest(team);
     if (status.success) {
       //console.info("saved", JSON.parse(JSON.stringify(team)));
       team.id = status.id;
       allTeams = [...allTeams, team];
-      displayTeams(allTeams);
-
-      $("#teamsForm").reset();
-
-      hideLoadingMask();
     }
+  }
+
+  if (status.success) {
+    displayTeams(allTeams);
+    $("#teamsForm").reset();
+    hideLoadingMask();
   }
 }
 
