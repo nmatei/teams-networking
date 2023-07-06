@@ -52,11 +52,13 @@ header h2 {
 .tbar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 5px;
   padding: 10px 0;
 }
+.tfill {
+  flex: 1;
+}
 .tbar label {
-  padding: 0 5px;
   cursor: pointer;
 }
 
