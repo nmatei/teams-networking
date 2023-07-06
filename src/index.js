@@ -164,18 +164,17 @@ async function onSubmit(e) {
       hideLoadingMask();
     }
   } else {
-    createTeamRequest(team).then(status => {
-      if (status.success) {
-        //console.info("saved", JSON.parse(JSON.stringify(team)));
-        team.id = status.id;
-        allTeams = [...allTeams, team];
-        displayTeams(allTeams);
+    const status = await createTeamRequest(team);
+    if (status.success) {
+      //console.info("saved", JSON.parse(JSON.stringify(team)));
+      team.id = status.id;
+      allTeams = [...allTeams, team];
+      displayTeams(allTeams);
 
-        $("#teamsForm").reset();
+      $("#teamsForm").reset();
 
-        hideLoadingMask();
-      }
-    });
+      hideLoadingMask();
+    }
   }
 }
 
