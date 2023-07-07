@@ -26,6 +26,13 @@
 
       <form id="teamsForm" action="" method="get">
         <table id="teamsTable">
+          <colgroup>
+            <col span="1" style="width: 20%" />
+            <col span="1" />
+            <col span="1" />
+            <col span="1" />
+            <col span="1" style="width: 80px" />
+          </colgroup>
           <thead>
             <tr>
               <th>Promotion</th>
@@ -39,20 +46,20 @@
           <tfoot>
             <tr>
               <td>
-                <input type="text" name="promotion" id="promotion" placeholder="Enter Promotion" required />
+                <input type="text" name="promotion" placeholder="Enter Promotion" required />
               </td>
               <td>
-                <input type="text" name="members" id="members" placeholder="Enter Members" required />
+                <input type="text" name="members" placeholder="Enter Members" required />
               </td>
               <td>
-                <input type="text" name="name" id="name" placeholder="Enter Name" required />
+                <input type="text" name="name" placeholder="Enter Name" required />
               </td>
               <td>
-                <input type="text" name="url" id="url" placeholder="Enter URL" required />
+                <input type="text" name="url" placeholder="Enter URL" required />
               </td>
               <td>
-                <button type="submit">💾</button>
-                <button type="reset">✖</button>
+                <button type="submit" title="Add">➕</button>
+                <button type="reset" title="Reset">✖</button>
               </td>
             </tr>
           </tfoot>

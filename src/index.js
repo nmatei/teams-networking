@@ -1,6 +1,7 @@
 import "./style.css";
 
 let allTeams = [];
+let editId;
 
 function $(selector) {
   return document.querySelector(selector);
@@ -26,6 +27,16 @@ function deleteTeamRequest(id) {
   }).then(r => r.json());
 }
 
+function updateTeamRequest(team) {
+  return fetch("http://localhost:3000/teams-json/update", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(team)
+  }).then(r => r.json());
+}
+
 function getTeamAsHTML(team) {
   return `<tr>
     <td>${team.promotion}</td>
@@ -33,14 +44,37 @@ function getTeamAsHTML(team) {
     <td>${team.name}</td>
     <td>${team.url}</td>
     <td>
-      <a data-id="${team.id}" class="delete-btn">✖</a>
       <a data-id="${team.id}" class="edit-btn">&#9998;</a>
+      <a data-id="${team.id}" class="delete-btn">✖</a>
     </td>
   </tr>`;
 }
 
-function renderTeams(teams) {
-  const htmlTeams = teams.map(getTeamAsHTML);
+function getTeamAsHTMLInputs(team) {
+  return `<tr>
+    <td>
+      <input value="${team.promotion}" type="text" name="promotion" placeholder="Enter Promotion" required/>
+    </td>
+    <td>
+      <input value="${team.members}" type="text" name="members" placeholder="Enter Members" required />
+    </td>
+    <td>
+      <input value="${team.name}" type="text" name="name" placeholder="Enter Name" required />
+    </td>
+    <td>
+      <input value="${team.url}" type="text" name="url" placeholder="Enter URL" required />
+    </td>
+    <td>
+      <button type="submit" title="Save">💾</button>
+      <button type="reset" title="Cancel">✖</button>
+    </td>
+  </tr>`;
+}
+
+function renderTeams(teams, editId) {
+  const htmlTeams = teams.map(team => {
+    return team.id === editId ? getTeamAsHTMLInputs(team) : getTeamAsHTML(team);
+  });
   //console.warn(htmlTeams);
   $("#teamsTable tbody").innerHTML = htmlTeams.join("");
 }
@@ -54,34 +88,55 @@ function loadTeams() {
     });
 }
 
-function onSubmit(e) {
-  e.preventDefault();
-
-  const members = $("#members").value;
-  const name = $("input[name=name]").value;
-  const url = $("input[name=url]").value;
+function getTeamValues(parent) {
+  const promotion = $(`${parent} input[name=promotion]`).value;
+  const members = $(`${parent} input[name=members]`).value;
+  const name = $(`${parent} input[name=name]`).value;
+  const url = $(`${parent} input[name=url]`).value;
   const team = {
-    promotion: $("#promotion").value,
+    promotion: promotion,
     members: members,
     name,
     url
   };
+  return team;
+}
 
-  createTeamRequest(team).then(status => {
-    console.warn("created", status);
-    if (status.success) {
-      window.location.reload();
-    }
-  });
+function onSubmit(e) {
+  e.preventDefault();
+
+  console.warn("update or create?", editId);
+
+  const team = getTeamValues(editId ? "tbody" : "tfoot");
+
+  if (editId) {
+    team.id = editId;
+    console.warn("update...", team);
+    updateTeamRequest(team).then(status => {
+      console.warn("updated", status);
+      if (status.success) {
+        window.location.reload();
+      }
+    });
+  } else {
+    createTeamRequest(team).then(status => {
+      console.warn("created", status);
+      if (status.success) {
+        window.location.reload();
+      }
+    });
+  }
 }
 
 function startEdit(id) {
+  editId = id;
   console.warn("edit... %o", id, allTeams);
-  const team = allTeams.find(team => team.id === id);
+  //const team = allTeams.find(team => team.id === id);
+  renderTeams(allTeams, id);
 
-  console.warn(team.promotion);
-  $("#promotion").value = team.promotion;
-  $("#members").value = team.members;
+  document.querySelectorAll("tfoot input").forEach(input => {
+    input.disabled = true;
+  });
 }
 
 function initEvents() {
