@@ -3,6 +3,8 @@ import { loadTeamsRequest, createTeamRequest, deleteTeamRequest, updateTeamReque
 //import * as middleware from "./middleware";
 //  usage : middleware.loadTeamsRequest()
 import { $, debounce, filterElements, mask, unmask } from "./utilities";
+// import { debounce } from "lodash"; // bad - don't import all functions
+// import debounce from "lodash/debounce"; // better
 
 let editId;
 let allTeams = [];
