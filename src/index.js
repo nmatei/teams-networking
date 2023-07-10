@@ -122,17 +122,16 @@ async function onSubmit(e) {
   }
 }
 
-let timer;
-
 function debounce(fn, ms) {
+  let timer;
   console.info("debounce", ms);
 
   return function (e) {
-    console.info("search...", timer, e.target.value);
+    console.info("inside debounce...", timer);
 
     clearTimeout(timer);
     timer = setTimeout(function () {
-      console.warn("timeout search");
+      console.warn("debounce timeout");
       fn(e);
     }, ms);
     //console.info("timer %o", timer);
@@ -140,6 +139,12 @@ function debounce(fn, ms) {
 }
 
 function initEvents() {
+  $("#removeSelected").addEventListener(
+    "click",
+    debounce(() => {
+      console.info("remove all");
+    }, 3000)
+  );
   $("#searchTeams").addEventListener(
     "input",
     debounce(e => {
