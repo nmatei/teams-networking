@@ -122,11 +122,32 @@ async function onSubmit(e) {
   }
 }
 
+let timer;
+
+function debounce(fn, ms) {
+  console.info("debounce", ms);
+
+  return function (e) {
+    console.info("search...", timer, e.target.value);
+
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      console.warn("timeout search");
+      fn(e);
+    }, ms);
+    //console.info("timer %o", timer);
+  };
+}
+
 function initEvents() {
-  $("#searchTeams").addEventListener("input", e => {
-    const teams = filterElements(allTeams, e.target.value);
-    displayTeams(teams);
-  });
+  $("#searchTeams").addEventListener(
+    "input",
+    debounce(e => {
+      console.info("search:", e.target.value);
+      const teams = filterElements(allTeams, e.target.value);
+      displayTeams(teams);
+    }, 400)
+  );
 
   $("#teamsTable tbody").addEventListener("click", e => {
     if (e.target.matches("a.remove-btn")) {
