@@ -2,6 +2,20 @@ export function $(selector) {
   return document.querySelector(selector);
 }
 
+export function debounce(fn, ms) {
+  let timer;
+
+  return function (e) {
+    const context = this;
+    const args = arguments;
+
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, ms);
+  };
+}
+
 /**
  *
  * @param {String|Element} el
