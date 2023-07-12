@@ -180,7 +180,8 @@ function initEvents() {
       deleteTeamRequest(id).then(status => {
         //console.info("delete status %o", status);
         if (status.success) {
-          window.location.reload();
+          //window.location.reload();
+          loadTeams();
         }
       });
     } else if (e.target.matches("button.edit-btn")) {
