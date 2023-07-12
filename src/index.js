@@ -5,13 +5,13 @@ function $(selector) {
 }
 
 function createTeamRequest(team) {
-  fetch("http://localhost:3000/teams-json/create", {
+  return fetch("http://localhost:3000/teams-json/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(team)
-  });
+  }).then(r => r.json());
 }
 
 function getTeamAsHTML(team) {
@@ -56,8 +56,12 @@ function onSubmit(e) {
     url
   };
 
-  createTeamRequest(team);
-  window.location.reload();
+  createTeamRequest(team).then(status => {
+    //console.warn("status", status);
+    if (status.success) {
+      window.location.reload();
+    }
+  });
 }
 
 function initEvents() {
