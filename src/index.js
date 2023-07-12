@@ -14,6 +14,16 @@ function createTeamRequest(team) {
   }).then(r => r.json());
 }
 
+function deleteTeamRequest(id) {
+  return fetch("http://localhost:3000/teams-json/delete", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ id: id })
+  }).then(r => r.json());
+}
+
 function getTeamAsHTML(team) {
   return `<tr>
     <td>${team.promotion}</td>
@@ -21,7 +31,7 @@ function getTeamAsHTML(team) {
     <td>${team.name}</td>
     <td>${team.url}</td>
     <td>
-      <button type="button" class="action-btn delete-btn">♻</button>
+      <button type="button" data-id="${team.id}" class="action-btn delete-btn">♻</button>
     </td>
   </tr>`;
 }
@@ -68,6 +78,17 @@ function onSubmit(e) {
 
 function initEvents() {
   $("#teamsForm").addEventListener("submit", onSubmit);
+
+  $("#teamsTable tbody").addEventListener("click", e => {
+    if (e.target.matches("button.delete-btn")) {
+      const id = e.target.dataset.id;
+      deleteTeamRequest(id).then(status => {
+        if (status.success) {
+          window.location.reload();
+        }
+      });
+    }
+  });
 }
 
 initEvents();
