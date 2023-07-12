@@ -142,13 +142,26 @@ function startEdit(id) {
   //const team = allTeams.find(team => team.id === id);
   renderTeams(allTeams, id);
 
+  setInputsDisabled(true);
+}
+
+function setInputsDisabled(disabled) {
   document.querySelectorAll("tfoot input").forEach(input => {
-    input.disabled = true;
+    input.disabled = disabled;
   });
 }
 
 function initEvents() {
   $("#teamsForm").addEventListener("submit", onSubmit);
+  $("#teamsForm").addEventListener("reset", e => {
+    console.info("reset", editId);
+    if (editId) {
+      // console.warn("cancel edit");
+      renderTeams(allTeams);
+      setInputsDisabled(false);
+      editId = "";
+    }
+  });
 
   $("#teamsTable tbody").addEventListener("click", e => {
     if (e.target.matches("button.delete-btn")) {
