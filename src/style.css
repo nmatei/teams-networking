@@ -107,11 +107,9 @@ footer {
   display: inline-block;
 }
 
-.delete-btn:hover {
-  text-decoration: underline;
+.delete-btn {
   color: #b90303;
 }
-.edit-btn:hover {
-  text-decoration: underline;
+.edit-btn {
   color: #039903;
 }
