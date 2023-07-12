@@ -127,14 +127,20 @@ function onSubmit(e) {
     updateTeamRequest(team).then(status => {
       console.warn("updated", status);
       if (status.success) {
-        window.location.reload();
+        //window.location.reload();
+        loadTeams();
+        //$("#teamsForm").reset();
+        setInputsDisabled(false);
+        editId = "";
       }
     });
   } else {
     createTeamRequest(team).then(status => {
       console.warn("created", status);
       if (status.success) {
-        window.location.reload();
+        //window.location.reload();
+        loadTeams();
+        $("#teamsForm").reset();
       }
     });
   }
