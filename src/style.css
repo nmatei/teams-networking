@@ -60,11 +60,17 @@ footer {
 #teamsTable {
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed; /* Ensure fixed layout */
 }
 #teamsTable th,
 #teamsTable td {
   padding: 5px;
   border: 1px solid #057988;
+  line-height: 23px;
+  /* word-break: break-all; */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 #teamsTable th {
   background-color: #0798ab;
@@ -79,10 +85,26 @@ footer {
   box-sizing: border-box;
 }
 
+.table-actions {
+  width: 90px;
+}
+
+.action-btn {
+  cursor: pointer;
+  min-width: 34px;
+}
+
 .edit-btn,
 .delete-btn {
   color: #02638d;
-  cursor: pointer;
+  display: none;
+}
+
+#teamsTable tr:hover .edit-btn {
+  display: inline-block;
+}
+#teamsTable tr:hover .delete-btn {
+  display: inline-block;
 }
 
 .delete-btn:hover {
