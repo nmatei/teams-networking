@@ -65,11 +65,16 @@ header h2 {
 #teamsTable {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 #teamsTable th,
 #teamsTable td {
   border: 1px solid #057988;
   padding: 5px;
+  line-height: 25px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 #teamsTable th {
   background-color: #0798ab;
@@ -78,21 +83,36 @@ header h2 {
 #teamsTable tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-#teamsTable tfoot input[type="text"] {
+#teamsTable input[type="text"] {
   width: 100%;
 }
-#teamsTable tfoot input:not([type="image" i]) {
+#teamsTable input:not([type="image" i]) {
   box-sizing: border-box;
 }
+.select-all-column {
+  width: 40px;
+}
+.table-actions {
+  width: 90px;
+}
 
-.remove-btn:hover {
+.action-btn {
   cursor: pointer;
-  text-decoration: underline;
+  min-width: 34px;
+}
+.remove-btn,
+.edit-btn {
+  display: none;
+}
+
+#teamsTable tr:hover .action-btn {
+  display: inline-block;
+}
+
+.remove-btn {
   color: darkred;
 }
-.edit-btn:hover {
-  cursor: pointer;
-  text-decoration: underline;
+.edit-btn {
   color: green;
 }
 
