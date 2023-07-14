@@ -146,8 +146,9 @@ function onSubmit(e) {
     createTeamRequest(team).then(status => {
       console.warn("created", status);
       if (status.success) {
-        //window.location.reload();
-        loadTeams();
+        team.id = status.id;
+        allTeams.push(team);
+        renderTeams(allTeams);
         $("#teamsForm").reset();
       }
     });
