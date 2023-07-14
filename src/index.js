@@ -161,7 +161,21 @@ function setInputsDisabled(disabled) {
   });
 }
 
+function filterElements(teams, search) {
+  return teams.filter(team => {
+    //console.info("search %o in %o", search, team.promotion);
+    return team.promotion.includes(search);
+  });
+}
+
 function initEvents() {
+  $("#search").addEventListener("input", e => {
+    const search = e.target.value;
+    const teams = filterElements(allTeams, search);
+    console.info("search", search, teams);
+    renderTeams(teams);
+  });
+
   $("#teamsForm").addEventListener("submit", onSubmit);
   $("#teamsForm").addEventListener("reset", e => {
     console.info("reset", editId);
