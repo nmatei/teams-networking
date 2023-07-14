@@ -165,7 +165,12 @@ function filterElements(teams, search) {
   search = search.toLowerCase();
   return teams.filter(team => {
     //console.info("search %o in %o", search, team.promotion);
-    return team.promotion.toLowerCase().includes(search);
+    return (
+      team.promotion.toLowerCase().includes(search) ||
+      team.members.toLowerCase().includes(search) ||
+      team.name.toLowerCase().includes(search) ||
+      team.url.toLowerCase().includes(search)
+    );
   });
 }
 
