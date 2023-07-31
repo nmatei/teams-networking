@@ -85,6 +85,10 @@ function loadTeams() {
 }
 
 function startEdit(id) {
+  // clean inputs - because they will be reseted
+  //   after for is submited or cancel edit
+  $("#teamsForm").reset();
+
   editId = id;
   //const team = allTeams.find(team => team.id == id);
   //setTeamValues(team);
