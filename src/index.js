@@ -1,11 +1,8 @@
 import "./style.css";
+import { $, mask, sleep, unmask } from "./utilities";
 
 let allTeams = [];
 let editId;
-
-function $(selector) {
-  return document.querySelector(selector);
-}
 
 function createTeamRequest(team) {
   return fetch("http://localhost:3000/teams-json/create", {
@@ -249,19 +246,11 @@ function initEvents() {
   });
 }
 
-$("#teamsForm").classList.add("loading-mask");
+mask($("#teamsForm"));
 loadTeams().then(() => {
-  $("#teamsForm").classList.remove("loading-mask");
+  unmask($("#teamsForm"));
 });
 initEvents();
-
-function sleep(ms) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve();
-    }, ms);
-  });
-}
 
 sleep(5000).then(() => {
   console.warn("ready");
