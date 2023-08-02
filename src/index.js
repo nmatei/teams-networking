@@ -152,10 +152,15 @@ function onSubmit(e) {
       if (status.success) {
         allTeams = allTeams.map(t => {
           if (t.id === team.id) {
-            return team;
+            //var a = { x: 1, y: 2 }; var b = { y: 3, z: 4 }; var c = { ...a, ...c };
+            return {
+              ...t,
+              ...team
+            };
           }
           return t;
         });
+        console.info(allTeams);
         renderTeams(allTeams);
         setInputsDisabled(false);
         editId = "";
