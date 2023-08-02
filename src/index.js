@@ -89,6 +89,13 @@ function renderTeams(teams, editId) {
     console.warn("same teams aready rendered");
     return;
   }
+  if (!editId && teams.length === previewTeams.length) {
+    const sameContent = previewTeams.every((team, i) => team === teams[i]);
+    if (sameContent) {
+      console.info("sameContent");
+      return;
+    }
+  }
   console.time("render");
   previewTeams = teams;
   const htmlTeams = teams.map(team => {
@@ -143,14 +150,12 @@ function onSubmit(e) {
     updateTeamRequest(team).then(status => {
       console.warn("updated", status);
       if (status.success) {
-        //loadTeams();
-        const edited = allTeams.find(t => t.id === team.id);
-        edited.promotion = team.promotion;
-        edited.members = team.members;
-        edited.name = team.name;
-        edited.url = team.url;
-        console.info("edited", edited, "vs", team);
-        allTeams = [...allTeams];
+        allTeams = allTeams.map(t => {
+          if (t.id === team.id) {
+            return team;
+          }
+          return t;
+        });
         renderTeams(allTeams);
         setInputsDisabled(false);
         editId = "";
