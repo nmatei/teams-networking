@@ -1,46 +1,9 @@
 import "./style.css";
 import { $, mask, sleep, unmask } from "./utilities";
+import { loadTeamsRequest, updateTeamRequest, createTeamRequest, deleteTeamRequest } from "./middleware";
 
 let allTeams = [];
 let editId;
-
-function createTeamRequest(team) {
-  return fetch("http://localhost:3000/teams-json/create", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(team)
-  }).then(r => r.json());
-}
-
-function deleteTeamRequest(id, callback) {
-  return fetch("http://localhost:3000/teams-json/delete", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ id })
-  })
-    .then(r => r.json())
-    .then(status => {
-      //console.info("delete status", status, typeof callback);
-      if (typeof callback === "function") {
-        callback(status);
-      }
-      return status;
-    });
-}
-
-function updateTeamRequest(team) {
-  return fetch("http://localhost:3000/teams-json/update", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(team)
-  }).then(r => r.json());
-}
 
 function getTeamAsHTML(team) {
   // const id = team.id;
@@ -114,16 +77,10 @@ function addTitlesToOverflowCells() {
 }
 
 function loadTeams() {
-  let url = "http://localhost:3000/teams-json";
-  if (window.location.host === "nmatei.github.io") {
-    url = "data/teams.json";
-  }
-  return fetch(url)
-    .then(r => r.json())
-    .then(teams => {
-      allTeams = teams;
-      renderTeams(teams);
-    });
+  return loadTeamsRequest().then(teams => {
+    allTeams = teams;
+    renderTeams(teams);
+  });
 }
 
 function getTeamValues(parent) {
