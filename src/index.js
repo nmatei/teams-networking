@@ -143,9 +143,15 @@ function onSubmit(e) {
     updateTeamRequest(team).then(status => {
       console.warn("updated", status);
       if (status.success) {
-        //window.location.reload();
-        loadTeams();
-        //$("#teamsForm").reset();
+        //loadTeams();
+        const edited = allTeams.find(t => t.id === team.id);
+        edited.promotion = team.promotion;
+        edited.members = team.members;
+        edited.name = team.name;
+        edited.url = team.url;
+        console.info("edited", edited, "vs", team);
+        allTeams = [...allTeams];
+        renderTeams(allTeams);
         setInputsDisabled(false);
         editId = "";
       }
