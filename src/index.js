@@ -110,8 +110,6 @@ function getTeamValues(parent) {
 async function onSubmit(e) {
   e.preventDefault();
 
-  console.warn("update or create?", editId);
-
   const team = getTeamValues(editId ? "tbody" : "tfoot");
 
   mask(form);
@@ -147,10 +145,7 @@ async function onSubmit(e) {
 
 function startEdit(id) {
   editId = id;
-  console.warn("edit... %o", id, allTeams);
-  //const team = allTeams.find(team => team.id === id);
   renderTeams(allTeams, id);
-
   setInputsDisabled(true);
 }
 
@@ -163,7 +158,6 @@ function setInputsDisabled(disabled) {
 function filterElements(teams, search) {
   search = search.toLowerCase();
   return teams.filter(({ promotion, members, name, url }) => {
-    //console.info("search %o in %o", search, team.promotion);
     return (
       promotion.toLowerCase().includes(search) ||
       members.toLowerCase().includes(search) ||
@@ -179,7 +173,6 @@ async function removeSelected() {
   const ids = [...selected].map(input => input.value);
   const promises = ids.map(id => deleteTeamRequest(id));
   const responses = await Promise.allSettled(promises);
-  //console.warn("responses", responses);
   unmask("#main");
   loadTeams();
 }
@@ -202,7 +195,6 @@ function initEvents() {
 
   $(form).addEventListener("submit", onSubmit);
   $(form).addEventListener("reset", e => {
-    console.info("reset", editId);
     if (editId) {
       // console.warn("cancel edit");
       allTeams = [...allTeams];
@@ -215,13 +207,9 @@ function initEvents() {
   $("#teamsTable tbody").addEventListener("click", async e => {
     if (e.target.matches("button.delete-btn")) {
       const id = e.target.dataset.id;
-      //console.warn("delete... %o", id);
       mask(form);
       const status = await deleteTeamRequest(id);
-      console.info("delete callback %o", status);
       if (status.success) {
-        //window.location.reload(); // v.1
-        //loadTeams(); // v.2
         allTeams = allTeams.filter(team => team.id !== id);
       }
       renderTeams(allTeams);
