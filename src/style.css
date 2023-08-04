@@ -85,6 +85,9 @@ footer {
   box-sizing: border-box;
 }
 
+.select-all-column {
+  width: 40px;
+}
 .table-actions {
   width: 90px;
 }

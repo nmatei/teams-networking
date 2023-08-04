@@ -13,6 +13,9 @@ function getTeamAsHTML(team) {
   const { id, url } = team;
   const displayUrl = url.startsWith("https://github.com/") ? url.substring(19) : url;
   return `<tr>
+    <td style="text-align: center">
+      <input type="checkbox" name="selected" value="${id}" />
+    </td>
     <td>${team.promotion}</td>
     <td>${team.members}</td>
     <td>${team.name}</td>
@@ -26,8 +29,11 @@ function getTeamAsHTML(team) {
   </tr>`;
 }
 
-function getTeamAsHTMLInputs({ promotion, members, name, url }) {
+function getTeamAsHTMLInputs({ id, promotion, members, name, url }) {
   return `<tr>
+    <td style="text-align: center">
+      <input type="checkbox" name="selected" value="${id}" />
+    </td>
     <td>
       <input value="${promotion}" type="text" name="promotion" placeholder="Enter Promotion" required/>
     </td>
