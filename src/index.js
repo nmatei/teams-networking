@@ -112,8 +112,6 @@ async function onSubmit(e) {
 
   if (editId) {
     team.id = editId;
-    console.warn("update...", team);
-
     const { success } = await updateTeamRequest(team);
     if (success) {
       allTeams = allTeams.map(t => {
@@ -126,22 +124,19 @@ async function onSubmit(e) {
         }
         return t;
       });
-      console.info(allTeams);
-      renderTeams(allTeams);
       setInputsDisabled(false);
       editId = "";
     }
-    unmask(form);
   } else {
     const { success, id } = await createTeamRequest(team);
     if (success) {
       team.id = id;
       allTeams = [...allTeams, team];
-      renderTeams(allTeams);
       $(form).reset();
     }
-    unmask(form);
   }
+  renderTeams(allTeams);
+  unmask(form);
 }
 
 function startEdit(id) {
@@ -154,7 +149,7 @@ function startEdit(id) {
 }
 
 function setInputsDisabled(disabled) {
-  document.querySelectorAll("tfoot input").forEach(input => {
+  document.querySelectorAll("tfoot input, tfoot button").forEach(input => {
     input.disabled = disabled;
   });
 }
