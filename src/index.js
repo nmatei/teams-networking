@@ -133,15 +133,14 @@ async function onSubmit(e) {
     }
     unmask(form);
   } else {
-    createTeamRequest(team).then(({ success, id }) => {
-      if (success) {
-        team.id = id;
-        allTeams = [...allTeams, team];
-        renderTeams(allTeams);
-        $(form).reset();
-      }
-      unmask(form);
-    });
+    const { success, id } = await createTeamRequest(team);
+    if (success) {
+      team.id = id;
+      allTeams = [...allTeams, team];
+      renderTeams(allTeams);
+      $(form).reset();
+    }
+    unmask(form);
   }
 }
 
@@ -193,18 +192,17 @@ function initEvents() {
     }
   });
 
-  $("#teamsTable tbody").addEventListener("click", e => {
+  $("#teamsTable tbody").addEventListener("click", async e => {
     if (e.target.matches("button.delete-btn")) {
       const id = e.target.dataset.id;
       //console.warn("delete... %o", id);
       mask(form);
-      deleteTeamRequest(id, status => {
-        console.info("delete callback %o", status);
-        if (status.success) {
-          //window.location.reload();
-          loadTeams();
-        }
-      });
+      const status = await deleteTeamRequest(id);
+      console.info("delete callback %o", status);
+      if (status.success) {
+        //window.location.reload();
+        loadTeams();
+      }
     } else if (e.target.matches("button.edit-btn")) {
       const id = e.target.dataset.id;
       startEdit(id);
