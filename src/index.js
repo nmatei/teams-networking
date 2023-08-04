@@ -77,12 +77,12 @@ function addTitlesToOverflowCells() {
 }
 
 async function loadTeams() {
-  mask($("#teamsForm"));
+  mask("#teamsForm");
   const teams = await loadTeamsRequest();
   console.warn("teams", teams);
   allTeams = teams;
   renderTeams(teams);
-  unmask($("#teamsForm"));
+  unmask("#teamsForm");
 }
 
 function getTeamValues(parent) {
@@ -191,7 +191,7 @@ function initEvents() {
     if (e.target.matches("button.delete-btn")) {
       const id = e.target.dataset.id;
       //console.warn("delete... %o", id);
-      mask($("#teamsForm"));
+      mask("#teamsForm");
       deleteTeamRequest(id, status => {
         console.info("delete callback %o", status);
         if (status.success) {

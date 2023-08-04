@@ -11,8 +11,14 @@ export function sleep(ms) {
 }
 
 export function mask(el) {
+  if (typeof el === "string") {
+    el = $(el);
+  }
   el.classList.add("loading-mask");
 }
 export function unmask(el) {
+  if (typeof el === "string") {
+    el = $(el);
+  }
   el.classList.remove("loading-mask");
 }
