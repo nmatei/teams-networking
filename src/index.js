@@ -93,7 +93,6 @@ function onSubmit(e) {
     createTeamRequest(team).then(status => {
       console.warn("status", status, team);
       if (status.success) {
-        //window.location.reload();
         team.id = status.id;
         allTeams.push(team);
         renderTeams(allTeams);
@@ -161,7 +160,8 @@ function initEvents() {
       const id = e.target.dataset.id;
       deleteTeamRequest(id).then(status => {
         if (status.success) {
-          window.location.reload();
+          allTeams = allTeams.filter(team => team.id !== id);
+          renderTeams(allTeams);
         }
       });
     } else if (e.target.matches("button.edit-btn")) {
