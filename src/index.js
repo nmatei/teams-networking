@@ -77,7 +77,7 @@ function onSubmit(e) {
 
   if (editId) {
     team.id = editId;
-    //console.warn("should we edit?", editId, team);
+    console.warn("should we edit?", editId, team);
     updateTeamRequest(team).then(status => {
       //console.warn("status", status);
       if (status.success) {
@@ -123,6 +123,10 @@ function getTeamValues() {
 
 function initEvents() {
   $("#teamsForm").addEventListener("submit", onSubmit);
+  $("#teamsForm").addEventListener("reset", () => {
+    console.warn("reset", editId);
+    editId = undefined;
+  });
 
   $("#teamsTable tbody").addEventListener("click", e => {
     if (e.target.matches("button.delete-btn")) {
