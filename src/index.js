@@ -1,3 +1,5 @@
+//import { debounce } from "lodash"; // imports too much code...
+import debounce from "lodash/debounce"; // improved import
 import "./style.css";
 
 let editId;
@@ -184,11 +186,15 @@ function filterElements(teams, search) {
 }
 
 function initEvents() {
-  $("#search").addEventListener("input", e => {
-    const search = e.target.value;
-    const teams = filterElements(allTeams, search);
-    renderTeams(teams);
-  });
+  $("#search").addEventListener(
+    "input",
+    debounce(e => {
+      const search = e.target.value;
+      console.info("search %o", search);
+      const teams = filterElements(allTeams, search);
+      renderTeams(teams);
+    }, 200)
+  );
 
   $("#teamsForm").addEventListener("submit", onSubmit);
   $("#teamsForm").addEventListener("reset", () => {
