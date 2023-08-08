@@ -1,52 +1,11 @@
 //import { debounce } from "lodash"; // imports too much code...
 import debounce from "lodash/debounce"; // improved import
 import "./style.css";
+import { $ } from "./utilities";
+import { loadTeamsRequest, createTeamRequest, deleteTeamRequest, updateTeamRequest } from "./middleware";
 
 let editId;
 let allTeams = [];
-
-function $(selector) {
-  return document.querySelector(selector);
-}
-
-function loadTeamsRequest() {
-  return fetch("http://localhost:3000/teams-json", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  }).then(r => r.json());
-}
-
-function createTeamRequest(team) {
-  return fetch("http://localhost:3000/teams-json/create", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(team)
-  }).then(r => r.json());
-}
-
-function deleteTeamRequest(id) {
-  return fetch("http://localhost:3000/teams-json/delete", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ id: id })
-  }).then(r => r.json());
-}
-
-function updateTeamRequest(team) {
-  return fetch("http://localhost:3000/teams-json/update", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(team)
-  }).then(r => r.json());
-}
 
 function getTeamAsHTML({ id, promotion, members, name, url }) {
   const displayUrl = url.startsWith("https://github.com/") ? url.substring(19) : url;
