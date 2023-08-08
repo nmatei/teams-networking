@@ -260,7 +260,7 @@
     "id": "001",
     "promotion": "proposal",
     "members": "Nicolae Matei",
-    "name": "😇 Test daruri spirituale OR Personality",
+    "name": "😇 Personality Tests",
     "url": "",
     "createdBy": "nmatei"
   },
@@ -292,8 +292,7 @@
     "id": "005",
     "promotion": "proposal",
     "members": "Nicolae Matei",
-    "name": "✋ Catalog & Prezența simplificată - sală / online / lipsă",
-    "description": "automat pentru cei prezenti in sală (pe baza numele pc-ului)",
+    "name": "✋ Online class Register - class / online / missing",
     "url": "",
     "createdBy": "nmatei"
   },
@@ -301,7 +300,7 @@
     "id": "006",
     "promotion": "proposal",
     "members": "Nicolae Matei",
-    "name": "📅 Orar pentru scoala/facultate",
+    "name": "📅 Student Agenda",
     "url": "",
     "createdBy": "nmatei"
   },
@@ -318,8 +317,8 @@
     "id": "008",
     "promotion": "proposal",
     "members": "Nicolae Matei",
-    "name": "👨‍👩‍👧‍👦 Copii vs Parinti",
-    "description": "Joc pentru parinti si copii (concurs de intrebari din cultura generala)",
+    "name": "👨‍👩‍👧‍👦 Kids vs Parents",
+    "description": "Game with general questions based on level",
     "url": "https://www.emag.ro/joc-de-societate-copii-vs-parintii-27-x-5-x-27-5-cm-os-251/pd/DRTG7RMBM/?cmpid=97684&gclid=CjwKCAjwuqiiBhBtEiwATgvixOXC1VtQfas6mSNe146ESVqi7Bo9xXGrfDYzFgN2tzlGEA704zAOsRoC3DsQAvD_BwE",
     "createdBy": "nmatei"
   },
