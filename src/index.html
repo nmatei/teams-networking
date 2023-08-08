@@ -33,14 +33,18 @@
       <form id="teamsForm" method="get">
         <table id="teamsTable">
           <colgroup>
-            <col span="1" />
-            <col span="1" />
-            <col span="1" />
-            <col span="1" />
+            <col class="select-all-column" />
+            <col />
+            <col />
+            <col />
+            <col />
             <col class="table-actions" />
           </colgroup>
           <thead>
             <tr>
+              <th>
+                <input type="checkbox" name="selectAll" id="selectAll" />
+              </th>
               <th>Promotion</th>
               <th>Members</th>
               <th>Project Name</th>
@@ -51,6 +55,7 @@
           <tbody></tbody>
           <tfoot>
             <tr>
+              <td></td>
               <td>
                 <input required type="text" name="promotion" id="promotion" placeholder="Enter promotion" />
               </td>

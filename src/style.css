@@ -85,13 +85,19 @@ footer {
 #teamsTable tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-#teamsTable input {
+#teamsTable input:not([type="checkbox"]) {
   width: 100%;
 }
 #teamsTable tfoot input:not([type="image" i]) {
   box-sizing: border-box;
 }
 
+.select-all-column {
+  width: 40px;
+}
+.select-row {
+  text-align: center;
+}
 .table-actions {
   width: 90px;
 }
