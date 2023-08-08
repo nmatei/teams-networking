@@ -151,7 +151,20 @@ function filterElements(teams, search) {
   });
 }
 
+async function removeSelected() {
+  mask("#main");
+  const selected = document.querySelectorAll("input[name=selected]:checked");
+  const ids = [...selected].map(input => input.value);
+  const promises = ids.map(id => deleteTeamRequest(id));
+  const statuses = await Promise.allSettled(promises);
+  console.warn("remove selected", statuses);
+  await loadTeams();
+  unmask("#main");
+}
+
 function initEvents() {
+  $("#removeSelected").addEventListener("click", removeSelected);
+
   $("#search").addEventListener(
     "input",
     debounce(e => {
