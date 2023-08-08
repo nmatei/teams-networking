@@ -1,11 +1,13 @@
 //import { debounce } from "lodash"; // imports too much code...
 import debounce from "lodash/debounce"; // improved import
 import "./style.css";
-import { $ } from "./utilities";
+import { $, mask, unmask } from "./utilities";
 import { loadTeamsRequest, createTeamRequest, deleteTeamRequest, updateTeamRequest } from "./middleware";
 
 let editId;
 let allTeams = [];
+
+const formSelector = "#teamsForm";
 
 function getTeamAsHTML({ id, promotion, members, name, url }) {
   const displayUrl = url.startsWith("https://github.com/") ? url.substring(19) : url;
@@ -77,18 +79,19 @@ function updateTeam(teams, team) {
 async function onSubmit(e) {
   e.preventDefault();
 
+  mask(formSelector);
   const team = getTeamValues();
 
   if (editId) {
     team.id = editId;
     console.warn("should we edit?", editId, team);
-
     const status = await updateTeamRequest(team);
     if (status.success) {
       allTeams = updateTeam(allTeams, team);
       renderTeams(allTeams);
       $("#teamsForm").reset();
     }
+    unmask(formSelector);
   } else {
     createTeamRequest(team).then(status => {
       console.warn("status", status, team);
@@ -100,6 +103,7 @@ async function onSubmit(e) {
         renderTeams(allTeams);
         $("#teamsForm").reset();
       }
+      unmask(formSelector);
     });
   }
 }
@@ -164,11 +168,13 @@ function initEvents() {
   $("#teamsTable tbody").addEventListener("click", e => {
     if (e.target.matches("button.delete-btn")) {
       const { id } = e.target.dataset;
+      mask(formSelector);
       deleteTeamRequest(id).then(status => {
         if (status.success) {
           allTeams = allTeams.filter(team => team.id !== id);
           renderTeams(allTeams);
         }
+        unmask(formSelector);
       });
     } else if (e.target.matches("button.edit-btn")) {
       const { id } = e.target.dataset;
@@ -179,10 +185,10 @@ function initEvents() {
 
 initEvents();
 
-$("#teamsForm").classList.add("loading-mask");
+mask(formSelector);
 loadTeams().then(() => {
   console.timeEnd("app-ready");
-  $("#teamsForm").classList.remove("loading-mask");
+  unmask(formSelector);
 });
 // - this code blockes the main thread
 // await loadTeams();
