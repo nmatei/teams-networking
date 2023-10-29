@@ -339,5 +339,14 @@
     "description": "Scrum Poker for agile development teams",
     "url": "https://planningpokeronline.com/",
     "createdBy": "nmatei"
+  },
+  {
+    "id": "011",
+    "promotion": "proposal",
+    "members": "Nicolae Matei",
+    "name": "⌨ Fast Typing",
+    "description": "Chrome extension that is added on https://my.bible.com/bible",
+    "url": "https://10fastfingers.com/typing-test/english",
+    "createdBy": "nmatei"
   }
 ]
