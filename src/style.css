@@ -47,6 +47,11 @@ h2 {
   font-weight: 100;
   font-size: 1.2em;
 }
+
+table {
+  width: 100%;
+}
+
 footer {
   text-align: center;
   padding: 5px;
