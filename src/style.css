@@ -6,6 +6,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-color: #e9f6f8;
 }
 section {
   flex: 1;
@@ -48,8 +49,26 @@ h2 {
   font-size: 1.2em;
 }
 
-table {
+section {
+  padding: 15px;
+}
+
+#teamsTable {
+  border-collapse: collapse;
   width: 100%;
+}
+
+#teamsTable th,
+#teamsTable td {
+  border: 1px solid #057988;
+  padding: 5px;
+}
+#teamsTable th {
+  background-color: #0798ab;
+  color: white;
+}
+#teamsTable tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 footer {
