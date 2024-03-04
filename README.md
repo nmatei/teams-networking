@@ -3,8 +3,7 @@
 ## Start project
 
 ```sh
-cd ../node-api
-npm start
+cd ../node-api && npm start
 ```
 
 ```sh
