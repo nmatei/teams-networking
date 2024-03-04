@@ -1,5 +1,9 @@
 import "./style.css";
 
+function $(selector) {
+  return document.querySelector(selector);
+}
+
 function createTeamRequest(team) {
   fetch("http://localhost:3000/teams-json/create", {
     method: "POST",
@@ -25,7 +29,7 @@ function renderTeams(teams) {
   const teamsHTML = teams.map(getTeamAsHTML);
   // console.info(teamsHTML);
 
-  document.querySelector("#teamsTable tbody").innerHTML = teamsHTML.join("");
+  $("#teamsTable tbody").innerHTML = teamsHTML.join("");
 }
 
 function loadTeams() {
@@ -39,10 +43,10 @@ function loadTeams() {
 
 function getFormValues() {
   return {
-    promotion: document.getElementById("promotion").value,
-    members: document.querySelector("#members").value,
-    name: document.querySelector("input[name=name]").value,
-    url: document.querySelectorAll("input[name=url]")[0].value
+    promotion: $("input[name=promotion]").value,
+    members: $("input[name=members]").value,
+    name: $("input[name=name]").value,
+    url: $("input[name=url]").value
   };
 }
 
@@ -54,7 +58,7 @@ function onSubmit(e) {
 }
 
 function initEvents() {
-  document.querySelector("#teamsForm").addEventListener("submit", onSubmit);
+  $("#teamsForm").addEventListener("submit", onSubmit);
 }
 
 initEvents();
