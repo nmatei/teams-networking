@@ -39,10 +39,10 @@ function loadTeams() {
 
 function getFormValues() {
   return {
-    promotion: "WON3",
-    members: "Your Name",
-    name: "CV",
-    url: "https://github.com/nmatei/teams-networking"
+    promotion: document.getElementById("promotion").value,
+    members: document.querySelector("#members").value,
+    name: document.querySelector("input[name=name]").value,
+    url: document.querySelectorAll("input[name=url]")[0].value
   };
 }
 
