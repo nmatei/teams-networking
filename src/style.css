@@ -57,6 +57,10 @@ section {
   border-collapse: collapse;
   width: 100%;
 }
+#teamsTable tfoot input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+}
 
 #teamsTable th,
 #teamsTable td {
