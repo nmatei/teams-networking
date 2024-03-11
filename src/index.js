@@ -31,7 +31,8 @@ function getTeamAsHTML(team) {
     <td>${team.name}</td>
     <td>${team.url}</td>
     <td>
-      <a href="#" data-id="${team.id}">✖</a> 
+      <a href="#" data-id="${team.id}" class="delete-btn">✖</a> 
+      <a href="#" data-id="${team.id}" class="edit-btn">&#9998;</a> 
     </td>
   </tr>`;
 }
@@ -72,10 +73,12 @@ function onSubmit(e) {
 function initEvents() {
   $("#teamsForm").addEventListener("submit", onSubmit);
   $("#teamsTable tbody").addEventListener("click", e => {
-    if (e.target.matches("a")) {
+    if (e.target.matches("a.delete-btn")) {
       const id = e.target.dataset.id;
       deleteTeamRequest(id);
       window.location.reload();
+    } else if (e.target.matches("a.edit-btn")) {
+      console.warn("click on edit");
     }
   });
 }
