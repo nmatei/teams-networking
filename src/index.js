@@ -1,4 +1,5 @@
 import "./style.css";
+import { debounce } from "./utilities";
 
 let allTeams = [];
 let editId;
@@ -119,6 +120,10 @@ function onSearch(e) {
   const query = e.target.value.toLowerCase();
   const queries = query.split(/\s*,\s*/).filter(q => q);
   console.warn(queries);
+  if (!queries.length) {
+    renderTeams(allTeams);
+    return;
+  }
   const teams = allTeams.filter(team => {
     console.warn("filter", team, queries);
     return queries.some(q => {
@@ -135,7 +140,7 @@ function onSearch(e) {
 }
 
 function initEvents() {
-  $("#search").addEventListener("input", onSearch);
+  $("#search").addEventListener("input", debounce(onSearch, 300));
   $("#teamsForm").addEventListener("submit", onSubmit);
   $("#teamsTable tbody").addEventListener("click", e => {
     if (e.target.matches("a.delete-btn")) {
