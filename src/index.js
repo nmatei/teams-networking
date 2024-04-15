@@ -115,7 +115,16 @@ function startEdit(teams, id) {
   setFormValues(team);
 }
 
+function onSearch(e) {
+  const query = e.target.value.toLowerCase();
+  const teams = allTeams.filter(team => {
+    return team.promotion.toLowerCase().includes(query);
+  });
+  renderTeams(teams);
+}
+
 function initEvents() {
+  $("#search").addEventListener("input", onSearch);
   $("#teamsForm").addEventListener("submit", onSubmit);
   $("#teamsTable tbody").addEventListener("click", e => {
     if (e.target.matches("a.delete-btn")) {
