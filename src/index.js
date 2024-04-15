@@ -118,7 +118,12 @@ function startEdit(teams, id) {
 function onSearch(e) {
   const query = e.target.value.toLowerCase();
   const teams = allTeams.filter(team => {
-    return team.promotion.toLowerCase().includes(query);
+    return (
+      team.promotion.toLowerCase().includes(query) ||
+      team.members.toLowerCase().includes(query) ||
+      team.name.toLowerCase().includes(query) ||
+      team.url.toLowerCase().includes(query)
+    );
   });
   renderTeams(teams);
 }
