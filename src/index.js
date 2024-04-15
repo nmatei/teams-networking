@@ -117,13 +117,19 @@ function startEdit(teams, id) {
 
 function onSearch(e) {
   const query = e.target.value.toLowerCase();
+  const queries = query.split(/\s*,\s*/).filter(q => q);
+  console.warn(queries);
   const teams = allTeams.filter(team => {
-    return (
-      team.promotion.toLowerCase().includes(query) ||
-      team.members.toLowerCase().includes(query) ||
-      team.name.toLowerCase().includes(query) ||
-      team.url.toLowerCase().includes(query)
-    );
+    console.warn("filter", team, queries);
+    return queries.some(q => {
+      console.info("q %o", q, team.name);
+      return (
+        team.promotion.toLowerCase().includes(q) ||
+        team.members.toLowerCase().includes(q) ||
+        team.name.toLowerCase().includes(q) ||
+        team.url.toLowerCase().includes(q)
+      );
+    });
   });
   renderTeams(teams);
 }
