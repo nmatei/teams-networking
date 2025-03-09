@@ -404,5 +404,13 @@
     "description": "Chrome extension that is added on https://my.bible.com/bible",
     "url": "https://10fastfingers.com/typing-test/english",
     "createdBy": "nmatei"
+  },
+  {
+    "id": "012",
+    "promotion": "proposal",
+    "members": "Nicolae Matei",
+    "name": "⌨ Euro pass CV generator",
+    "description": "Allow to create a CV based on a template",
+    "createdBy": "nmatei"
   }
 ]
